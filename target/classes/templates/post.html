@@ -1,0 +1,35 @@
+
+<html>
+<body>
+
+    <h1>Dono do post</h1>
+    <ul th:each="usuario : ${usuario}">
+        <li th:text="${usuario.nome}"></li>
+        <li th:text="${usuario.telefone}"></li>
+        <li th:text="${usuario.email}"></li>
+        <li th:text="${usuario.username}"></li>
+        <li th:text="${usuario.foto}"></li>
+    </ul>
+
+    <h1>Categorias</h1>
+    <ul th:each="categoria : ${categorias}">
+        <li th:text="${categoria.nome}"></li>
+    </ul>
+
+    <h1>Post</h1>
+    <ul th:each="post : ${post}">
+        <li th:text="${post.titulo}"></li>
+        <li th:text="${post.subtitulo}"></li>
+        <li th:text="${post.corpo}"></li>
+    </ul>
+
+    <h1>Comentarios</h1>
+    <ul th:each="comentario : ${comentario}">
+        <li th:text="${comentario.id_usuario.nome}"></li>
+        <li th:text="${comentario.id_usuario.username}"></li>
+        <li th:text="${comentario.id_usuario.foto}"></li>
+        <li th:text="${comentario.comentario}"></li>
+    </ul>
+</body>
+
+</html>

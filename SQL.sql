@@ -78,3 +78,8 @@ insert into comentario(id_postagem, id_usuario, comentario) values
 (2,1,"eu que fiz HTML"),
 (3,1,"eu que fiz CSS"),
 (4,1,"eu que fiz JAVA");
+
+select *
+from postagem p 
+inner join usuario u on p.id_usuario = u.id
+where username = "ilussencio";
