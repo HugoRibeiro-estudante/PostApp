@@ -1,0 +1,25 @@
+<html>
+
+<h1>Usuario</h1>
+<ul th:each="usuario : ${usuario}">
+    <li th:text="${usuario.nome}"></li>
+    <li th:text="${usuario.telefone}"></li>
+    <li th:text="${usuario.email}"></li>
+    <li th:text="${usuario.username}"></li>
+    <li th:text="${usuario.foto}"></li>
+</ul>
+<h1>Categorias</h1>
+
+<form action="cadastrarUsuarioCategorias" method="post" th:object="${cat}">
+
+    <ul th:each="categoria : ${categorias}" th:field="*{id}">
+        <li><input type="checkbox" th:value="${categoria.id}" th:text="${categoria.nome}"/></li>
+    </ul>
+
+    <select th:field="*{id}">
+
+    </select>
+
+    <button type="submit">Cadastrar</button>
+</form>
+</html>

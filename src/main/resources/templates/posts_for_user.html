@@ -9,7 +9,7 @@
         <li th:text="${usuario.username}"></li>
         <li th:text="${usuario.foto}"></li>
     </ul>
-    
+
     <h1>Postagens</h1>
     <ul th:each="postagems : ${postagems}">
         <li><a th:href="@{'/post/'+${postagems.id}}"  > link </a></li>

@@ -30,7 +30,6 @@ public class UsuarioRepository {
         );
         return list;
     }
-
     public Usuario findById(int id){
         Usuario user = db.queryForObject(
             "select * from usuario where id = ?;",
@@ -49,7 +48,6 @@ public class UsuarioRepository {
                 id);
         return user;
     }
-
     public Usuario findBy(String username){
         Usuario user = db.queryForObject(
                 "select * from usuario where username = ?;",
@@ -68,4 +66,29 @@ public class UsuarioRepository {
                 username);
         return user;
     }
+    public void save(Usuario usuario) {
+        db.update("insert into usuario(nome, telefone, email, senha, username, foto, perfil) values (?, ?, ?,?,?, ?,?);",
+                usuario.getNome(),
+                usuario.getTelefone(),
+                usuario.getEmail(),
+                usuario.getSenha(),
+                usuario.getUsername(),
+                usuario.getFoto(),
+                usuario.getPerfil()
+                );
+    }
+    public void update(Usuario usuario){
+        db.update(
+                "update usuario set nome=?, telefone=?, email=?, senha=?, username=?, foto=?, perfil=? where id = ?",
+                usuario.getNome(),
+                usuario.getTelefone(),
+                usuario.getEmail(),
+                usuario.getSenha(),
+                usuario.getUsername(),
+                usuario.getFoto(),
+                usuario.getPerfil(),
+                usuario.getId()
+        );
+    }
+
 }

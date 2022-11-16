@@ -1,6 +1,6 @@
-drop database articlesys;
-create database articlesys;
-use articlesys;
+#drop database articlesys;
+#create database articlesys;
+#use articlesys;
 
 create table usuario(
     id int auto_increment primary key not null,
@@ -20,7 +20,7 @@ create table categorias(
 
 create table usuario_categorias(
     id int auto_increment primary key not null,
-    id_usuario int not null, 
+    id_usuario int not null,
     id_categoria int not null,
     foreign key (id_usuario) references usuario(id),
     foreign key (id_categoria) references categorias(id)
@@ -61,7 +61,7 @@ insert into categorias(nome) values ("Desenvolvimento"),("Java"),("HTML"),("CSS"
 #USUARIO CATEGORIA
 insert into usuario_categorias(id_usuario, id_categoria) values (1,1),(1,2),(1,3),(1,4);
 #POSTAGEM
-insert into postagem(id_usuario, titulo, subtitulo, corpo) values 
+insert into postagem(id_usuario, titulo, subtitulo, corpo) values
 (1,"JAVA SCRIPT", "Porque utilizar JavaScript","<main> CORPO DA POSTAGEM SOBRE JAVA SCRIPT</main>"),
 (1,"HTML", "Porque utilizar HTML","<main> CORPO DA POSTAGEM SOBRE HTML</main>"),
 (1,"CSS", "Porque utilizar CSS","<main> CORPO DA POSTAGEM SOBRE CSS</main>"),
@@ -69,7 +69,7 @@ insert into postagem(id_usuario, titulo, subtitulo, corpo) values
 #CATEGORIA POSTAGEM
 insert into postagem_categorias(id_postagem,id_categoria) values (1,1),(1,5),(2,1),(2,3),(3,1),(3,4),(4,1),(1,2);
 #COMENTARIO
-insert into comentario(id_postagem, id_usuario, comentario) values 
+insert into comentario(id_postagem, id_usuario, comentario) values
 (1,2,"Otimo conteudo de JAVA SCRIPT"),
 (2,2,"Otimo conteudo de HTML"),
 (3,2,"Otimo conteudo de CSS"),
@@ -78,8 +78,3 @@ insert into comentario(id_postagem, id_usuario, comentario) values
 (2,1,"eu que fiz HTML"),
 (3,1,"eu que fiz CSS"),
 (4,1,"eu que fiz JAVA");
-
-select *
-from postagem p 
-inner join usuario u on p.id_usuario = u.id
-where username = "ilussencio";

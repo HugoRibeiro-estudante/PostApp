@@ -1,0 +1,13 @@
+<html>
+<form action="cadastrar" method="post" th:object="${usuario}">
+    id: <input type="text" th:field="*{id}"><br>
+    nome: <input type="text" th:field="*{nome}"><br>
+    telefone: <input type="text" th:field="*{telefone}"><br>
+    email: <input type="text" th:field="*{email}"><br>
+    senha: <input type="text" th:field="*{senha}"><br>
+    username: <input type="text" th:field="*{username}"><br>
+    perfil: <input type="text" th:field="*{perfil}"><br>
+    foto: <input type="text" th:field="*{foto}"><br>
+    <button type="submit">Gravar</button>
+</form>
+</html>

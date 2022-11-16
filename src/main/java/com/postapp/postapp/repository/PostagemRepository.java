@@ -18,7 +18,7 @@ public class PostagemRepository {
 
     public List<Postagem> findAll(){
         List<Postagem> list = db.query(
-                "select * from Postagem;",
+                "select * from postagem;",
                 (rs, rowNum) -> {
                     Postagem postagem = new Postagem();
                     postagem.setId(rs.getInt("id"));
@@ -34,7 +34,7 @@ public class PostagemRepository {
 
     public List<Postagem> findBy(Usuario usuario){
         List<Postagem> list = db.query(
-                "select * from Postagem where id_usuario = ?;",
+                "select * from postagem where id_usuario = ?;",
                 (rs, rowNum) -> {
                     Postagem postagem = new Postagem();
                     postagem.setId(rs.getInt("id"));
@@ -49,7 +49,7 @@ public class PostagemRepository {
 
     public Postagem findById(int id){
        Postagem post = db.queryForObject(
-                "select * from Postagem where id = ?;",
+                "select * from postagem where id = ?;",
                 (rs, rowNum) -> {
                     Postagem postagem = new Postagem();
                     postagem.setId(rs.getInt("id"));
