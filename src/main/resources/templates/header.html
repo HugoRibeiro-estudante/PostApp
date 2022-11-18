@@ -1,0 +1,12 @@
+<div class="boxHeader" th:fragment="header">
+    <img th:src="@{/img/Logo.png}" alt="Logo do PostApp" class="logo">
+
+    <nav class="user-info">
+        <span class="username" th:text="${usuario.nome}" th:fragment="name"></span>
+        <img class="user-pic" th:src="${usuario.foto}" width="30px" th:fragment="pic"/>
+
+    </nav>
+
+</div>
+
+

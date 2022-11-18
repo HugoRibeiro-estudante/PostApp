@@ -29,7 +29,7 @@ public class PostagemController {
     CategoriaRepository categoriaRepository;
 
     @GetMapping("/{id}")
-    public String ListOnePost(@PathVariable int id, Model model){
+    public String ListOnePost(@PathVariable int id, Model model) {
         Postagem post = postagemRepository.findById(id);
         System.out.println(post.getId());
         List<Comentario> list = comentarioRepository.findBy(post);
@@ -40,6 +40,6 @@ public class PostagemController {
         model.addAttribute("comentario", list);
         model.addAttribute("categorias", categorias);
 
-        return "post";
+        return "post/post";
     }
 }

@@ -27,21 +27,20 @@ public class UsuarioController {
     @Autowired
     CategoriaRepository categoriaRepository;
 
-
     @GetMapping("/{username}")
-    public String postsUser(@PathVariable String username, Model model){
+    public String postsUser(@PathVariable String username, Model model) {
         System.out.println(username);
         Usuario usuario = usuarioRepository.findBy(username);
         List<Postagem> postagems = postagemRepository.findBy(usuario);
         model.addAttribute("usuario", usuario);
-        model.addAttribute("postagems",postagems);
+        model.addAttribute("postagems", postagems);
         System.out.println(usuario);
         System.out.println(postagems);
-        return "posts_for_user";
+        return "post/posts_for_user";
     }
 
     @GetMapping("/cadastrar")
-    public String SaveUser(Model model){
+    public String SaveUser(Model model) {
         model.addAttribute("usuario", new Usuario());
         return "usuario/cadastra_usuario";
     }
@@ -58,6 +57,7 @@ public class UsuarioController {
         model.addAttribute("cat", new Categoria());
         return "usuario/usuario_categoria";
     }
+
     @PostMapping("/cadastrarUsuarioCategorias")
     public String cadastrarCategorias(Categoria cat, Model model) {
         System.out.println(cat);
