@@ -3,7 +3,7 @@
 
 <body>
     <div th:fragment="conteudo">
-        
+
 
         <h1>Informação do usuario</h1>
         <ul th:each="usuario : ${usuario}">
@@ -19,6 +19,7 @@
             <li><a th:href="@{'/post/'+${postagems.id}}"  > link </a></li>
             <li th:text="${postagems.titulo}"></li>
             <li th:text="${postagems.subtitulo}"></li>
+            <li th:text="${postagems.create_data}"></li>
         </ul>
     </div>
 </body>

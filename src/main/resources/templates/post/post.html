@@ -22,6 +22,7 @@
             <li th:text="${post.titulo}"></li>
             <li th:text="${post.subtitulo}"></li>
             <li th:text="${post.corpo}"></li>
+            <li th:text="${post.create_data}"></li>
         </ul>
 
         <h2>Comentarios</h2>
@@ -30,6 +31,7 @@
             <li th:text="${comentario.id_usuario.username}"></li>
             <li th:text="${comentario.id_usuario.foto}"></li>
             <li th:text="${comentario.comentario}"></li>
+            <li th:text="${comentario.create_data}"></li>
         </ul>
     </div>
 </body>
