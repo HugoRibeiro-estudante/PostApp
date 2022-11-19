@@ -12,6 +12,7 @@ public class UsuarioRepository {
     @Autowired
     JdbcTemplate db;
 
+    //Buscar todos os usuario
     public List<Usuario> findAll(){
         List<Usuario> list = db.query(
                 "select * from usuario;",

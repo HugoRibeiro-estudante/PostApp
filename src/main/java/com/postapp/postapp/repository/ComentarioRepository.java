@@ -7,6 +7,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
 
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.List;
 
 @Repository
@@ -28,6 +30,12 @@ public class ComentarioRepository {
                    comentario.setId(rs.getInt("id"));
                    comentario.setComentario(rs.getString("comentario"));
                    comentario.setId_usuario(usuarioRepository.findById(rs.getInt("id_usuario")));
+
+                    DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
+                    LocalDateTime localDateTime = LocalDateTime.parse(rs.getString("create_data"), dateTimeFormatter);
+                    comentario.setCreate_data(localDateTime);
+
+
                    return comentario;
                 },postagem.getId());
         return list;

@@ -6,13 +6,14 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
 
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.List;
 
 @Repository
 public class PostagemRepository {
     @Autowired
     JdbcTemplate db;
-
     @Autowired
     UsuarioRepository usuarioRepository;
 
@@ -25,6 +26,9 @@ public class PostagemRepository {
                     postagem.setTitulo(rs.getString("titulo"));
                     postagem.setCorpo(rs.getString("corpo"));
                     postagem.setSubtitulo(rs.getString("subtitulo"));
+                    DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
+                    LocalDateTime localDateTime = LocalDateTime.parse(rs.getString("create_data"), dateTimeFormatter);
+                    postagem.setCreate_data(localDateTime);
                     postagem.setId_usuario(usuarioRepository.findById(rs.getInt("id_usuario")));
                     return postagem;
                 }
@@ -41,6 +45,9 @@ public class PostagemRepository {
                     postagem.setTitulo(rs.getString("titulo"));
                     postagem.setCorpo(rs.getString("corpo"));
                     postagem.setSubtitulo(rs.getString("subtitulo"));
+                    DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
+                    LocalDateTime localDateTime = LocalDateTime.parse(rs.getString("create_data"), dateTimeFormatter);
+                    postagem.setCreate_data(localDateTime);
                     postagem.setId_usuario(usuarioRepository.findById(rs.getInt("id_usuario")));
                     return postagem;
                 },usuario.getId());
@@ -56,6 +63,9 @@ public class PostagemRepository {
                     postagem.setTitulo(rs.getString("titulo"));
                     postagem.setCorpo(rs.getString("corpo"));
                     postagem.setSubtitulo(rs.getString("subtitulo"));
+                    DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
+                    LocalDateTime localDateTime = LocalDateTime.parse(rs.getString("create_data"), dateTimeFormatter);
+                    postagem.setCreate_data(localDateTime);
                     postagem.setId_usuario(usuarioRepository.findById(rs.getInt("id_usuario")));
                     return postagem;
                 },id);
