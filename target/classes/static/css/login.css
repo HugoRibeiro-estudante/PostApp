@@ -1,0 +1,100 @@
+@import url('https://fonts.googleapis.com/css2?family=Inder&family=Jockey+One&display=swap');
+/* font-family: 'Inder', sans-serif;
+font-family: 'Jockey One', sans-serif; */
+
+html,
+body {
+    height: 100vh;
+}
+
+body {
+    background: linear-gradient(180deg, rgba(70, 92, 122, 1) 50%, rgba(255, 255, 255, 1) 100%);
+    background-repeat: no-repeat;
+    overflow: hidden;
+}
+
+header {
+    display: flex;
+    justify-content: flex-end;
+}
+
+
+main {
+    height: 80%;
+    gap: 12px;
+}
+
+.box-logo {
+    padding: 10px 40px;
+}
+
+.logo {
+    width: 100px;
+    height: 66px;
+}
+
+.box-login {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    width: 450px;
+    max-width: 90%;
+    height: 450px;
+    max-height: 70vh;
+    background-color: #000;
+    border: 2px solid #6A51C5;
+    border-radius: 30px;
+    overflow: hidden;
+}
+
+
+.login-form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 60px;
+    font-family: 'Inder', sans-serif;
+    width: 100%;
+    height: 100%;
+}
+
+input {
+    display: flex;
+    justify-content: center;
+    outline: none;
+}
+
+label {
+    color: #d9d9d9;
+}
+
+input[type="button"] {
+    background-color: #443091;
+    padding: 10px;
+    margin: 0 auto;
+    border: 2px solid #fff;
+    border-radius: 30px;
+    color: #fff;
+}
+
+input[type="text"],
+input[type="password"] {
+    color: #fff;
+    background-color: #000;
+    border: none;
+    border-bottom: 2px solid #443091;
+}
+
+input:is([type="text"], [type="password"]):focus {
+    border-bottom: 2px solid #6A51C5;
+}
+
+.register-message {
+    font-family: 'Jockey One', sans-serif;
+}
+
+.register-link {
+    color: #443091;
+    font-weight: bolder;
+    text-decoration: none;
+}

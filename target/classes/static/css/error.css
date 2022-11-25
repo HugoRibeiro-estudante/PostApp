@@ -1,0 +1,52 @@
+@import url('https://fonts.googleapis.com/css2?family=Inder&family=Jockey+One&display=swap');
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  min-width: 100vw;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 250px;
+}
+
+.box-error {
+  display: flex;
+  align-items: flex-end;
+  gap: 20px;
+  font-family: 'Jockey One', sans-serif;
+}
+
+.img-error {
+  width: 328px;
+  height: 132px;
+}
+
+.error-message {
+  color: #2E4671;
+  font-size: 5.8rem;
+}
+
+.box-disconnected {
+  display: flex;
+  align-items: center;
+  text-align: center;
+  gap: 20px;
+  font-family: 'Inder', sans-serif;
+  width: 900px;
+}
+
+.disconnected-message {
+  color: #6A51C5;
+  font-size: 4rem;
+  font-weight: 400;
+}
