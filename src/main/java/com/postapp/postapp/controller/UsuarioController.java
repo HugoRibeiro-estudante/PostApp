@@ -7,6 +7,7 @@ import com.postapp.postapp.repository.CategoriaRepository;
 import com.postapp.postapp.repository.PostagemRepository;
 import com.postapp.postapp.repository.UsuarioRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -16,6 +17,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 @Controller
 @RequestMapping("/usuario")
@@ -29,39 +31,21 @@ public class UsuarioController {
 
     @GetMapping("/{username}")
     public String postsUser(@PathVariable String username, Model model) {
-        System.out.println(username);
-        Usuario usuario = usuarioRepository.findBy(username);
+        Optional<Usuario> opt = usuarioRepository.findByUsername(username);
+        Usuario usuario = opt.get();
         List<Postagem> postagems = postagemRepository.findBy(usuario);
         model.addAttribute("usuario", usuario);
         model.addAttribute("postagems", postagems);
-        System.out.println(usuario);
-        System.out.println(postagems);
         return "post/posts_for_user";
     }
+    @GetMapping("/find/{busca}")
+    public ResponseEntity<Boolean> findEmail(@PathVariable String busca) {
+        Optional<Usuario> optEmail = usuarioRepository.findByEmail(busca);
+        Optional<Usuario> optUsername = usuarioRepository.findByUsername(busca);
 
-    @GetMapping("/cadastrar")
-    public String SaveUser(Model model) {
-        model.addAttribute("usuario", new Usuario());
-        return "usuario/cadastra_usuario";
+        if(optEmail.isEmpty() && optUsername.isEmpty()) {
+            return ResponseEntity.ok().body(false);
+        }
+        return ResponseEntity.ok().body(true);
     }
-
-    @PostMapping("/cadastrar")
-    public String novoTipo(Usuario usuario, Model model) {
-        usuarioRepository.save(usuario);
-        List<Categoria> categorias = categoriaRepository.findAll();
-
-        model.addAttribute("usuario", usuario);
-        model.addAttribute("categorias", categorias);
-
-        List<Categoria> cat = new ArrayList<>();
-        model.addAttribute("cat", new Categoria());
-        return "usuario/usuario_categoria";
-    }
-
-    @PostMapping("/cadastrarUsuarioCategorias")
-    public String cadastrarCategorias(Categoria cat, Model model) {
-        System.out.println(cat);
-        return "home";
-    }
-
 }

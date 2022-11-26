@@ -93,3 +93,8 @@ input:is([type="text"], [type="password"]):focus {
   font-weight: bold;
   text-decoration: none;
 }
+.msg-error {
+  color: red;
+  font-size: 10px;
+  margin-top: 4px;
+}

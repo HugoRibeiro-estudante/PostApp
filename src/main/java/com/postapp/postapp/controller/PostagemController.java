@@ -39,7 +39,6 @@ public class PostagemController {
         model.addAttribute("usuario", post.getId_usuario());
         model.addAttribute("comentario", list);
         model.addAttribute("categorias", categorias);
-
         return "post/post";
     }
 }
