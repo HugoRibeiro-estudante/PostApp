@@ -11,7 +11,7 @@ async function validateForm() {
   const email = document.getElementById("email");
   const senha = document.getElementById("senha");
   const telefone = document.getElementById("telefone");
-  const contError = 0;
+  let contError = 0;
 
   /* Valida campo nome*/
   let error_nome = document.querySelector(".msg-nome");

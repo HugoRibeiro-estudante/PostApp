@@ -1,6 +1,5 @@
-#drop database articlesys;
-#create database articlesys;
-#use articlesys;
+create database articlesys;
+use articlesys;
 
 create table usuario(
     id int auto_increment primary key not null,
