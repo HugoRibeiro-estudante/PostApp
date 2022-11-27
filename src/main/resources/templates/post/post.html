@@ -2,37 +2,78 @@
 <html th:include="template :: modelo">
 
 <body>
-    <div th:fragment="conteudo">
-        <h1>Dono do post</h1>
-        <ul th:each="usuario : ${usuario}">
+    <div th:fragment="conteudo" class="container">
 
-            <li th:text="${usuario.telefone}"></li>
-            <li th:text="${usuario.email}"></li>
-            <li th:text="${usuario.username}"></li>
-            <li th:text="${usuario.foto}"></li>
-        </ul>
+        <div class="row">
 
-        <h2>Categorias</h2>
-        <ul th:each="categoria : ${categorias}">
-            <li th:text="${categoria.nome}"></li>
-        </ul>
+            <!-- MENU LATERIAL -->
+            <div class="col-md-1">
+                <div class="d-flex flex-column justify-content-center">
+                    <a href="home"><img th:src="@{/img/home.png}"/></a>
+                    <a href="home"><img th:src="@{/img/pen.png}"/></a>
+                    <a href="home"><img th:src="@{/img/bookmark.png}"/></a>
+                </div>
+            </div>
 
-        <h2>Post</h2>
-        <ul th:each="post : ${post}">
-            <li th:text="${post.titulo}"></li>
-            <li th:text="${post.subtitulo}"></li>
-            <li th:text="${post.corpo}"></li>
-            <li th:text="${post.create_data}"></li>
-        </ul>
 
-        <h2>Comentarios</h2>
-        <ul th:each="comentario : ${comentario}">
-            <li th:text="${comentario.id_usuario.nome}"></li>
-            <li th:text="${comentario.id_usuario.username}"></li>
-            <li th:text="${comentario.id_usuario.foto}"></li>
-            <li th:text="${comentario.comentario}"></li>
-            <li th:text="${comentario.create_data}"></li>
-        </ul>
+            <!-- POST -->
+            <div class="col-md-11">
+                <!-- CABEÇALHO DO ARTIGO -->
+                <div class="cabecalho">
+                    <h1 class="titulo" th:text="${post.titulo}"></h1>
+                    <h2 class="subtitulo" th:text="${post.subtitulo}"></h2>
+
+                    <h3 class="autor" >
+                        <a th:href="@{'/usuario/'+${usuario.username}}" th:text="${usuario.nome}"></a>
+                    </h3>
+
+                    <p class="data d-flex align-items-center">
+                        <img th:src="@{/img/calendar.png}"/>
+                        <label th:text="${post.create_data}"></label>
+                    </p>
+                </div>
+
+                <hr>
+
+                <!-- CATEGORIAS -->
+                <div class="d-flex flex-row">
+                    <div class="p-2" th:each="categoria:${categorias}">
+                       <button type="button" class="btn btn-primary" th:text="${categoria.nome}"></button>
+                    </div>
+                </div>
+
+
+                    <li th:text="${post.subtitulo}"></li>
+                    <li th:text="${post.corpo}"></li>
+                    <li th:text="${post.create_data}"></li>
+                </ul>
+
+                <h2>Comentarios</h2>
+                <ul th:each="comentario : ${comentario}">
+                    <li th:text="${comentario.id_usuario.nome}"></li>
+                    <li th:text="${comentario.id_usuario.username}"></li>
+                    <li th:text="${comentario.id_usuario.foto}"></li>
+                    <li th:text="${comentario.comentario}"></li>
+                    <li th:text="${comentario.create_data}"></li>
+                </ul>
+
+                <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+                <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+                <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+                <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+
+            </div>
+
+
+
+        </div>
+
+
+
+
+
+
+
     </div>
 </body>
 

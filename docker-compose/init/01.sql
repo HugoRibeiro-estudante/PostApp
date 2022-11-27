@@ -56,8 +56,8 @@ create table comentario(
 );
 
 #USUARIO
-insert into usuario(nome, telefone, email, senha, username, foto, perfil) values ("Lucas Ilussencio da silva", "34912345678", "ilussencio@gmail.com","password","ilussencio", "https://media-exp1.licdn.com/dms/image/C4E03AQHR0yPiwVtfjA/profile-displayphoto-shrink_800_800/0/1654528097336?e=2147483647&v=beta&t=pJ5UEI9qA4pBa1dte4Qr04toC5PUfeaVY-0E5dv0-QE","administrador");
-insert into usuario(nome, telefone, email, senha, username, foto, perfil) values ("Patricia Santana Santiago", "34912345678", "patriciasantanasantiago@gmail.com","password","pssantiago", "fotoperfil.jpg","usuario");
+insert into usuario(nome, telefone, email, senha, username, foto, perfil) values ("Lucas Ilussencio da silva", "34912345678", "ilussencio@gmail.com","password","ilussencio", "https://media-exp1.licdn.com/dms/image/C4E03AQHR0yPiwVtfjA/profile-displayphoto-shrink_800_800/0/1654528097336?e=2147483647&v=beta&t=pJ5UEI9qA4pBa1dte4Qr04toC5PUfeaVY-0E5dv0-QE","ADMIN");
+insert into usuario(nome, telefone, email, senha, username, foto, perfil) values ("Patricia Santana Santiago", "34912345678", "patriciasantanasantiago@gmail.com","password","pssantiago", "fotoperfil.jpg","USER");
 #CATEGORIA
 insert into categorias(nome) values ("Desenvolvimento"),("Java"),("HTML"),("CSS"),("JavaScript"),("Git Hub");
 #USUARIO CATEGORIA
