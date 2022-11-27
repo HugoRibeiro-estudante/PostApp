@@ -25,30 +25,30 @@
             <form action="/cadastro" method="post" class="p-5 register-form" th:object="${user}">
                 <fieldset>
                     <label for="nome">Nome: </label>
-                    <input type="text" name="nome" id="nome" class="w-100" th:field="*{nome}">
+                    <input type="text" name="nome" id="nome" onkeypress="removeMsg('msg-nome')" class="w-100" th:field="*{nome}">
                     <span class="msg-error msg-nome"></span>
                 </fieldset>
                 <fieldset>
                     <label for="user">Usuario: </label>
-                    <input type="text" name="user" id="user" class="w-100" th:field="*{username}">
+                    <input type="text" name="user" id="user" onkeypress="removeMsg('msg-user')" class="w-100" th:field="*{username}">
                     <span class="msg-error msg-user"></span>
                 </fieldset>
                 <fieldset>
                     <label for="email">E-mail: </label>
-                    <input type="text" name="email" id="email" class="w-100" th:field="*{email}">
+                    <input type="text" name="email" id="email" onkeypress="removeMsg('msg-email')" class="w-100" th:field="*{email}">
                     <span class="msg-error msg-email"></span>
                 </fieldset>
                 <fieldset>
                     <label for="senha">Senha: </label>
-                    <input type="password" name="senha" id="senha" class="w-100" th:field="*{senha}">
+                    <input type="password" name="senha" id="senha" class="w-100" onkeypress="removeMsg('msg-senha')"  th:field="*{senha}">
                     <span class="msg-error msg-senha"></span>
                 </fieldset>
                 <fieldset>
                     <label for="telefone">Telefone: </label>
-                    <input type="tel" name="telefone" id="telefone" class="w-100" th:field="*{telefone}">
+                    <input type="tel" name="telefone" id="telefone" class="w-100" onkeypress="inserirMascara('telefone','(99)99999-9999');removeMsg('msg-telefone');" th:field="*{telefone}">
                     <span class="msg-error msg-telefone"></span>
                 </fieldset>
-                <input type="button" value="Cadastrar" class="w-50" onclick="validateForm()">
+                <input type="button" value="Cadastrar" onclick="validateForm()" class="w-50">
             </form>
         </div>
         <p class="login-message">Já é cadastrado? <a href="login" class="login-link">Faça o login aqui</a></p>
@@ -61,6 +61,7 @@
         crossorigin="anonymous"></script>
 
     <script th:src="@{/js/script.js}"></script>
+    <script th:src="@{/js/jwifi.js}"></script>
 </body>
 
 </html>

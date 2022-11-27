@@ -1,15 +1,25 @@
+var host = window.location.host;
+var form = document.querySelector(".register-form");
+
+function removeMsg(campo){
+    document.querySelector(`.${campo}`).style.display = "none"
+}
+
 async function validateForm(){
+
     nome = document.getElementById('nome')
     user = document.getElementById('user')
     email = document.getElementById('email')
     senha = document.getElementById('senha')
     telefone = document.getElementById('telefone')
+    contError = 0
 
     /* Valida campo nome*/
     error_nome = document.querySelector('.msg-nome');
     if(nome.value == ""){
         error_nome.innerHTML = "Favor preencher o nome completo"
         error_nome.style.display = "block"
+        contError += 1
     }else{
         error_nome.style.display = "none"
     }
@@ -19,10 +29,10 @@ async function validateForm(){
     if(user.value == ""){
         error_user.innerHTML = "Favor preencher com o nome de usuário"
         error_user.style.display = "block"
+        contError += 1
     }else{
         error_user.style.display = "none"
-        url = `http://localhost:8080/usuario/find/${user.value}`
-        console.log(url)
+        url = `http://${host}/usuario/find/${user.value}`
         let response = await fetch(url)
         if(response.ok){
             let json = await response.json();
@@ -31,19 +41,21 @@ async function validateForm(){
                 error_user.style.display = "block"
                 user.value = ''
                 user.focus()
+                contError += 1
             }
         }
     }
 
     /* Valida campo email*/
     error_email = document.querySelector('.msg-email');
-    if(email.value == ""){
-        error_email.innerHTML = "Favor preencher com o endereço de e-mail"
+    padrao = /\S+@\S+\.\S+/;
+    if(email.value == "" || !padrao.test(email.value)){
+        error_email.innerHTML = "Favor preencher com um endereço de e-mail"
         error_email.style.display = "block"
+        contError += 1
     }else{
         error_email.style.display = "none"
-        url = `http://localhost:8080/usuario/find/${email.value}`
-        console.log(url)
+        url = `http://${host}/usuario/find/${email.value}`
         let response = await fetch(url)
         if(response.ok){
             let json = await response.json();
@@ -52,25 +64,33 @@ async function validateForm(){
                 error_email.style.display = "block"
                 email.value = ''
                 email.focus()
+                contError += 1
             }
         }
     }
 
     /* Valida campo senha*/
     error_senha = document.querySelector('.msg-senha');
-    if(senha.value == ""){
-        error_senha.innerHTML = "Favor preencher o com uma senha"
+    if(senha.value == "" || senha.value.length < 5){
+        error_senha.innerHTML = "Senha de no mínimo 5 caracteres"
         error_senha.style.display = "block"
+        contError += 1
     }else{
         error_senha.style.display = "none"
     }
 
     /* Valida campo telefone*/
     error_telefone = document.querySelector('.msg-telefone');
-    if(telefone.value == ""){
-        error_telefone.innerHTML = "Favor preencher o telefone"
+    padrao = /^\([0-9]{2}\)[0-9]?[0-9]{4}-[0-9]{4}$/
+    if(telefone.value == "" || !padrao.test(telefone.value)){
+        error_telefone.innerHTML = "Favor preencher com um numero de telefone"
         error_telefone.style.display = "block"
+        contError += 1
     }else{
         error_telefone.style.display = "none"
+    }
+
+    if(contError == 0){
+        form.submit();
     }
 }
