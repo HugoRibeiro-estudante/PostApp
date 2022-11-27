@@ -29,12 +29,10 @@
 
                     <p class="data d-flex align-items-center">
                         <img th:src="@{/img/calendar.png}"/>
-                        <label th:text="${post.create_data}"></label>
+                        <label th:text="${#temporals.format(post.create_data, 'dd/MM/yyyy')}" />
                     </p>
                 </div>
-
                 <hr>
-
                 <!-- CATEGORIAS -->
                 <div class="d-flex flex-row">
                     <div class="p-2" th:each="categoria:${categorias}">

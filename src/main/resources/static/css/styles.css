@@ -89,7 +89,7 @@ footer {
 @import url('https://fonts.googleapis.com/css2?family=Inder&family=Jockey+One&display=swap');
 
 .cabecalho{
-    padding: 50px;
+    padding: 30px;
 }
 
 .titulo{
@@ -115,7 +115,8 @@ footer {
 
 .data > p{
     font-family: 'Inder', sans-serif;
-    font-size: 30px;
+    font-size: 40px;
+    font-weight: bold;
 }
 
 .btn{
@@ -123,4 +124,8 @@ footer {
     border-color: #6A51C5;
     color: #BAAFE4;
     font-weight: bold;
+}
+.btn:hover{
+    background-color: #6A51C5;
+    color: white;
 }

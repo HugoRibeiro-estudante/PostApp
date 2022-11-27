@@ -31,7 +31,6 @@ public class PostagemController {
     @GetMapping("/{id}")
     public String ListOnePost(@PathVariable int id, Model model) {
         Postagem post = postagemRepository.findById(id);
-        System.out.println(post.getId());
         List<Comentario> list = comentarioRepository.findBy(post);
         List<Categoria> categorias = categoriaRepository.findBy(post);
 
