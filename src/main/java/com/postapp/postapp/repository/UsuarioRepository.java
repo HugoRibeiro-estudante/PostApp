@@ -2,10 +2,13 @@ package com.postapp.postapp.repository;
 
 import com.postapp.postapp.model.Usuario;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
+import java.util.NoSuchElementException;
+import java.util.Optional;
 
 @Repository
 public class UsuarioRepository {
@@ -49,23 +52,50 @@ public class UsuarioRepository {
                 id);
         return user;
     }
-    public Usuario findBy(String username){
-        Usuario user = db.queryForObject(
-                "select * from usuario where username = ?;",
-                (rs, rowNum) -> {
-                    Usuario usuario = new Usuario();
-                    usuario.setId(rs.getInt("id"));
-                    usuario.setNome(rs.getString("nome"));
-                    usuario.setFoto(rs.getString("foto"));
-                    usuario.setEmail(rs.getString("email"));
-                    usuario.setSenha(rs.getString("senha"));
-                    usuario.setPerfil(rs.getString("perfil"));
-                    usuario.setTelefone(rs.getString("telefone"));
-                    usuario.setUsername(rs.getString("username"));
-                    return  usuario;
-                },
-                username);
-        return user;
+    public Optional<Usuario> findByUsername(String username){
+        try {
+            Usuario user = db.queryForObject(
+                    "select * from usuario where username = ?;",
+                    (rs, rowNum) -> {
+                        Usuario usuario = new Usuario();
+                        usuario.setId(rs.getInt("id"));
+                        usuario.setNome(rs.getString("nome"));
+                        usuario.setFoto(rs.getString("foto"));
+                        usuario.setEmail(rs.getString("email"));
+                        usuario.setSenha(rs.getString("senha"));
+                        usuario.setPerfil(rs.getString("perfil"));
+                        usuario.setTelefone(rs.getString("telefone"));
+                        usuario.setUsername(rs.getString("username"));
+                        return usuario;
+                    },
+                    username);
+            return Optional.of(user);
+        }catch (EmptyResultDataAccessException e){
+            return Optional.empty();
+        }
+    }
+    public Optional<Usuario> findByEmail(String email){
+        try {
+            Usuario user = db.queryForObject(
+                    "select * from usuario where email = ?;",
+                    (rs, rowNum) -> {
+                        Usuario usuario = new Usuario();
+                        usuario.setId(rs.getInt("id"));
+                        usuario.setNome(rs.getString("nome"));
+                        usuario.setFoto(rs.getString("foto"));
+                        usuario.setEmail(rs.getString("email"));
+                        usuario.setSenha(rs.getString("senha"));
+                        usuario.setPerfil(rs.getString("perfil"));
+                        usuario.setTelefone(rs.getString("telefone"));
+                        usuario.setUsername(rs.getString("username"));
+                        return  usuario;
+                    },
+                    email);
+            return Optional.of(user);
+
+        }catch (EmptyResultDataAccessException e){
+            return Optional.empty();
+        }
     }
     public void save(Usuario usuario) {
         db.update("insert into usuario(nome, telefone, email, senha, username, foto, perfil) values (?, ?, ?,?,?, ?,?);",
@@ -74,8 +104,8 @@ public class UsuarioRepository {
                 usuario.getEmail(),
                 usuario.getSenha(),
                 usuario.getUsername(),
-                usuario.getFoto(),
-                usuario.getPerfil()
+                "user.png",
+                "USER"
                 );
     }
     public void update(Usuario usuario){

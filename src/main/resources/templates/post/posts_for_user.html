@@ -4,8 +4,8 @@
 <body>
     <div th:fragment="conteudo">
 
-
         <h1>Informação do usuario</h1>
+
         <ul th:each="usuario : ${usuario}">
             <li th:text="${usuario.nome}"></li>
             <li th:text="${usuario.telefone}"></li>

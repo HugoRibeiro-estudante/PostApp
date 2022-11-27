@@ -85,3 +85,47 @@ footer {
 .footer-title {
     font-weight: bold;
 }
+
+@import url('https://fonts.googleapis.com/css2?family=Inder&family=Jockey+One&display=swap');
+
+.cabecalho{
+    padding: 30px;
+}
+
+.titulo{
+    font-family: 'Jockey One', sans-serif;
+    font-weight: bold;
+    font-size: 70px;
+    color: #443091;
+}
+
+.subtitulo{
+    font-family: 'Inder', sans-serif;
+    font-size: 32px;
+}
+
+.autor{
+    font-family: 'Inder', sans-serif;
+    font-size: 15px;
+    margin: 10px 0px
+}
+.autor > a {
+    color: #6A51C5;
+}
+
+.data > p{
+    font-family: 'Inder', sans-serif;
+    font-size: 40px;
+    font-weight: bold;
+}
+
+.btn{
+    background-color: black;
+    border-color: #6A51C5;
+    color: #BAAFE4;
+    font-weight: bold;
+}
+.btn:hover{
+    background-color: #6A51C5;
+    color: white;
+}
