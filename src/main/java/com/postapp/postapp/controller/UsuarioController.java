@@ -38,6 +38,7 @@ public class UsuarioController {
         model.addAttribute("postagems", postagems);
         return "post/posts_for_user";
     }
+
     @GetMapping("/find/{busca}")
     public ResponseEntity<Boolean> findEmail(@PathVariable String busca) {
         Optional<Usuario> optEmail = usuarioRepository.findByEmail(busca);
@@ -48,4 +49,5 @@ public class UsuarioController {
         }
         return ResponseEntity.ok().body(true);
     }
+
 }

@@ -33,11 +33,13 @@ public class PostagemController {
         Postagem post = postagemRepository.findById(id);
         List<Comentario> list = comentarioRepository.findBy(post);
         List<Categoria> categorias = categoriaRepository.findBy(post);
+        List<Postagem> postagems = postagemRepository.findBy(post.getId_usuario(),  3, post.getId());
 
         model.addAttribute("post", post);
         model.addAttribute("usuario", post.getId_usuario());
         model.addAttribute("comentario", list);
         model.addAttribute("categorias", categorias);
+        model.addAttribute("postagems", postagems);
         return "post/post";
     }
 }

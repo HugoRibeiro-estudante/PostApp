@@ -4,9 +4,9 @@
     <main class="d-flex flex-column justify-content-center align-items-center" th:fragment="conteudo">
         <div class="box-login">
             <h2 class="login-title">Login</h2>
-            <form action="" class="login-form">
+            <form action="/login" method="post" class="login-form">
                 <fieldset>
-                    <input type="text" name="" id="user" class="w-100" placeholder="Usuário">
+                    <input type="text" name="" id="user" class="w-100" placeholder="Usuário" >
                 </fieldset>
                 <fieldset>
                     <input type="password" name="" id="pwd" class="w-100" placeholder="Senha">
@@ -14,7 +14,7 @@
                 <input type="button" value="Entrar" class="w-50">
             </form>
         </div>
-        <p class="register-message">Não tem cadastro? <a href="cadastro" class="link">Cadastre-se</a></p>
+        <p class="register-message">Ainda não possui cadastro? <a href="cadastro" class="link">Click aqui para fazer parte!</a></p>
     </main>
 </body>
 </html>

@@ -79,3 +79,67 @@ insert into comentario(id_postagem, id_usuario, comentario, create_data) values
 (2,1,"eu que fiz HTML", "2022-11-19T13:00:00"),
 (3,1,"eu que fiz CSS", "2022-11-19T13:00:00"),
 (4,1,"eu que fiz JAVA", "2022-11-19T13:00:00");
+
+insert into postagem(id_usuario, titulo, subtitulo, corpo, create_data) values (2,'SELEÇAO BRASILEIRA', 'VITORIA 4 X 0','''<div class="paragrafo">
+                        <p>
+                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorum maiores ex, perspiciatis, totam at optio architecto ipsam consectetur mollitia ab reprehenderit officia. Tenetur enim laborum, debitis veniam adipisci a doloribus.
+                            Eaque quasi a minus numquam excepturi facilis voluptatibus ea assumenda iusto nemo, illum ratione aliquam maxime! Qui, placeat vel laboriosam distinctio debitis itaque optio deleniti sint! Quae ab facere non?
+                            Nihil eligendi sit exercitationem eaque corrupti quas quo voluptates numquam. Error culpa veniam accusantium soluta, recusandae nostrum placeat voluptatum rerum molestias, assumenda amet iste asperiores quam obcaecati ratione suscipit magnam.
+                        </p>
+                    </div>
+                    <div class="imagem">
+                        <img src="https://miro.medium.com/max/720/1*JCIT0dCE_SCuDiEu-aTC-Q.webp">
+                        <label>Cobras e burro</label>
+                    </div>
+
+                    <div class="citacao">
+                        <p>
+                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorum maiores ex, perspiciatis, totam at optio architecto ipsam consectetur mollitia ab reprehenderit officia. Tenetur enim laborum, debitis veniam adipisci a doloribus.
+                            Eaque quasi a minus numquam excepturi facilis voluptatibus ea assumenda iusto nemo, illum ratione aliquam maxime! Qui, placeat vel laboriosam distinctio debitis itaque optio deleniti sint! Quae ab facere non?
+                            Nihil eligendi sit exercitationem eaque corrupti quas quo voluptates numquam. Error culpa veniam accusantium soluta, recusandae nostrum placeat voluptatum rerum molestias, assumenda amet iste asperiores quam obcaecati ratione suscipit magnam.
+                        </p>
+                    </div>
+                    <div class="paragrafo">
+                        <p>
+                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorum maiores ex, perspiciatis, totam at optio architecto ipsam consectetur mollitia ab reprehenderit officia. Tenetur enim laborum, debitis veniam adipisci a doloribus.
+                            Eaque quasi a minus numquam excepturi facilis voluptatibus ea assumenda iusto nemo, illum ratione aliquam maxime! Qui, placeat vel laboriosam distinctio debitis itaque optio deleniti sint! Quae ab facere non?
+                            Nihil eligendi sit exercitationem eaque corrupti quas quo voluptates numquam. Error culpa veniam accusantium soluta, recusandae nostrum placeat voluptatum rerum molestias, assumenda amet iste asperiores quam obcaecati ratione suscipit magnam.
+                        </p>
+                    </div>
+                    <div class="subtitulo">
+                        <p>Subtitulo</p>
+                    </div>
+
+                    <div class="paragrafo">
+                        <p>
+                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorum maiores ex, perspiciatis, totam at optio architecto ipsam consectetur mollitia ab reprehenderit officia. Tenetur enim laborum, debitis veniam adipisci a doloribus.
+                            Eaque quasi a minus numquam excepturi facilis voluptatibus ea assumenda iusto nemo, illum ratione aliquam maxime! Qui, placeat vel laboriosam distinctio debitis itaque optio deleniti sint! Quae ab facere non?
+                            Nihil eligendi sit exercitationem eaque corrupti quas quo voluptates numquam. Error culpa veniam accusantium soluta, recusandae nostrum placeat voluptatum rerum molestias, assumenda amet iste asperiores quam obcaecati ratione suscipit magnam.
+                        </p>
+                    </div>''', '2022-11-19T13:00:00');
+
+select * from postagem;
+
+insert into postagem_categorias(id_postagem,id_categoria) values (5,1),(5,5),(5,1),(5,3),(5,1),(5,4),(5,1),(5,2);
+
+insert into comentario(id_postagem, id_usuario, comentario, create_data) values
+                                                                             (5,2,"Otimo conteudo de JAVA SCRIPT", "2022-11-19T13:00:00"),
+                                                                             (5,2,"Otimo conteudo de HTML", "2022-11-19T13:00:00"),
+                                                                             (5,2,"Otimo conteudo de CSS", "2022-11-19T13:00:00"),
+                                                                             (5,2,"Otimo conteudo de JAVA", "2022-11-19T13:00:00"),
+                                                                             (5,1,"eu que fiz JAVA SCRIPT", "2022-11-19T13:00:00"),
+                                                                             (5,1,"eu que fiz HTML", "2022-11-19T13:00:00"),
+                                                                             (5,1,"eu que fiz CSS", "2022-11-19T13:00:00"),
+                                                                             (5,1,"eu que fiz JAVA", "2022-11-19T13:00:00");
+
+select * from usuario where username = 'ilussencio' or email = 'ilussencio' and senha = 'password';
+
+select * from postagem where id_usuario = 1 and id != 1 order by rand() limit 3;
+select * from postagem_categorias;
+select * from postagem;
+
+select p.id, p.titulo, p.subtitulo
+from postagem_categorias join postagem p on postagem_categorias.id_postagem = p.id
+where id_categoria in (1,2,3) order by rand() limit 3;
+show tables;
+
