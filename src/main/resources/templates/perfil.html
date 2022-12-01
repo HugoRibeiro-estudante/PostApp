@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html th:include="template :: modelo">
+
+<body>
+  <div th:fragment="conteudo">
+
+    <div class="user-info">
+      <div class="user-pic"></div>
+      <button>
+        <img th:src="@{/img/pencil.png}" alt="Ícone de editar">
+      </button>
+      <span>Hugo Ribeiro Alves</span>
+    </div>
+  </div>
+</body>
+
+</html>

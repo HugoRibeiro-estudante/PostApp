@@ -97,6 +97,31 @@ public class UsuarioRepository {
             return Optional.empty();
         }
     }
+
+    public Optional<Usuario> auth(String username, String password){
+        try {
+            Usuario user = db.queryForObject(
+                    "select * from usuario where username = ? or email = ? and senha = ?;",
+                    (rs, rowNum) -> {
+                        Usuario usuario = new Usuario();
+                        usuario.setId(rs.getInt("id"));
+                        usuario.setNome(rs.getString("nome"));
+                        usuario.setFoto(rs.getString("foto"));
+                        usuario.setEmail(rs.getString("email"));
+                        usuario.setSenha(rs.getString("senha"));
+                        usuario.setPerfil(rs.getString("perfil"));
+                        usuario.setTelefone(rs.getString("telefone"));
+                        usuario.setUsername(rs.getString("username"));
+                        return  usuario;
+                    },
+                    username,username,password);
+            return Optional.of(user);
+        }catch (EmptyResultDataAccessException e){
+            return Optional.empty();
+        }
+    }
+
+
     public void save(Usuario usuario) {
         db.update("insert into usuario(nome, telefone, email, senha, username, foto, perfil) values (?, ?, ?,?,?, ?,?);",
                 usuario.getNome(),

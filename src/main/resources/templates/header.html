@@ -1,9 +1,13 @@
 <div class="boxHeader" th:fragment="header">
+<<<<<<< HEAD
     <img th:src="@{/img/logo-preto.png}" alt="Logo do PostApp" class="logo">
 
+=======
+    <img th:src="@{/img/Logo.png}" alt="Logo do PostApp" class="logo">
+>>>>>>> 7fe6a955b205ff74a85c44bf0fba370c3ca63738
     <nav class="user-info">
-        <span class="username"><a href="/cadastro">Entrar</a></span>
-        <span class="username"><a href="/login">Registre-se</a></span>
+        <a href="/login"><button type="button" class="btn btn-outline-light btn-login">Entrar</button></a>
+        <a href="/cadastro"><button type="button" class="btn btn-outline-light btn-register">Cadastre-se</button></a>
         <!--
             <span class="username" th:text="${usuario.nome}" th:fragment="name"></span>
             <img class="user-pic" th:src="${usuario.foto}" width="30px" th:fragment="pic"/>
