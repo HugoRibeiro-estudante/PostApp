@@ -10,32 +10,6 @@
 
 <body>
 
-  <!-- <div th:fragment="conteudo">
-
-    <div class="row">    
-      <div th:replace="barra :: barra"></div>
-
-      <div class="col-md-11 row">
-          
-        <div class="col-md-6">
-          <img th:src="@{/img/office.png}" alt="Ilustração de escritório">
-        </div>
-
-        <div class="col-md-7">
-          
-          <h1>Compartilhe seu conhecimento !</h1>
-
-          <div class="d-flex justify-content-center gap-5">
-            <button class="btn-purple"><a href="">Cadastrar</a></button>
-            <button class="btn-purple"><a href="">Entrar</a></button>
-          </div>
-        </div>
-
-      </div>
-    </div>
-
-
-  </div> -->
   <main th:fragment="conteudo" class="mycontainer">
 
     <div class="row">
@@ -81,7 +55,8 @@
             <h1 class="text-center p-5 mt-3 mb-5">O que você esta procurando ?</h1>
             <!-- <input type="search" name="" id="pesquisa" class="p-3 w-50 m-auto"> -->
             <div class="input-group mb-3 w-50 m-auto">
-              <input type="seach" class="form-control p-3 fs-3" placeholder="Pesquise" aria-label="Pesquise" aria-describedby="button-search">
+              <input type="seach" class="form-control p-3 fs-3" placeholder="Pesquise" aria-label="Pesquise"
+                aria-describedby="button-search">
               <button class="btn btn-outline-secondary" type="button" id="button-search"></button>
             </div>
           </section>
