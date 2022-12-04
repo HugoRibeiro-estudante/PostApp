@@ -1,61 +1,34 @@
 @import url('https://fonts.googleapis.com/css2?family=Inder&family=Jockey+One&display=swap');
 
- *{
+* {
     margin: 0px;
     box-sizing: border-box;
     font-family: 'Inder', 'Times New Roman', Times, serif;
 }
-/*
-h1{
+
+
+h3 {
     font-family: 'Jockey One', sans-serif;
     padding: 10px;
-    text-align: center;
-    margin: 70px 0px 20px 0px;
-}
 
-.btn-purple{
-
-    background-color: #DDA6FF;
-    border-radius: 30px;
-    padding: 5px;
-    width: 120px;
-}
-
-.btn-purple > a{
-    
-    text-decoration: none;
-    font-size: 20px;
-    color: black;
-    
-} */
-.mycontainer{
-    width: 99%;
-}
-
-h3{
-    font-family: 'Jockey One', sans-serif;
-    padding: 10px;
-    
     text-align: center;
     margin: 70px 0px 0px 0px;
     font-size: 36px;
 }
 
-.share{
+.share {
     background-image: url('../img/share.png');
     background-repeat: no-repeat;
     background-position: center right 140px;
 }
 
-.search{
-
+.search {
     background-image: url('../img/search.png');
     background-repeat: no-repeat;
     background-position: center right 140px;
 }
 
-.categorias{
-
+.categorias {
     background-color: black;
     color: #BAAFE4;
     font-family: 'Jockey One';
@@ -64,22 +37,19 @@ h3{
     border-radius: 10px;
     margin: 10px;
     font-size: 16px;
-   
+
 
 }
 
-#button-search{
-
+#button-search {
     background-image: url('../img/search.png');
     background-repeat: no-repeat;
     background-position: center;
     background-size: 30px;
     padding: 20px;
-    
 }
 
-.results{
-
+.results {
     background-color: black;
     width: 20%;
     border-radius: 20px;
@@ -88,12 +58,12 @@ h3{
     margin: 40px;
 }
 
-label{
+.by {
 
     color: lightslategray;
 }
 
-.title{
+.title {
 
     color: #BAAFE4;
     font-family: 'Jockey One';
@@ -102,13 +72,13 @@ label{
     margin-bottom: 10px;
 }
 
-.author{
+.author {
     font-size: 16px;
     color: white;
 }
 
 
-p{
+p {
     text-align: center;
     font-size: 18px;
 }
@@ -116,22 +86,22 @@ p{
 
 @media only screen and (max-width: 600px) {
 
-   .results{
-    width: 300px;
-    margin-top: 10px;
-   }
+    .results {
+        width: 300px;
+        margin-top: 10px;
+    }
 
-   .share{
-   
-    background-position: center right 50px;
+    .share {
+
+        background-position: center right 50px;
 
     }
 
-.search{
+    .search {
 
-    background-position: center right 50px;
+        background-position: center right 50px;
 
     }
 
 
-  }
+}
