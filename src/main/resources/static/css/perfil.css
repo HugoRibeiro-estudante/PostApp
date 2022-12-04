@@ -2,17 +2,11 @@
   position: relative;
   width: 150px;
   height: 150px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
 }
 
 .box-user-pic {
   width: 150px;
   height: 150px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
   border-radius: 100px;
   overflow: hidden;
 }
@@ -27,9 +21,6 @@
   background-color: #443091;
   right: 0;
   bottom: 0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
   width: 36px;
   height: 36px;
   border: 0;
@@ -55,12 +46,16 @@
 }
 
 .form-perfil input {
+  outline: none;
   border: 0;
   border-bottom: 1px solid #BAAFE4;
+}
+
+.form-perfil input:focus {
+  border-bottom: 1px solid #443091;
 }
 
 .btn-update {
   color: #fff;
   background-color: #443091;
-  /* border-radius: 10px; */
 }
