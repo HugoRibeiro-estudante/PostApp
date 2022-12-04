@@ -86,8 +86,6 @@ public class PostagemRepository {
         return list;
     }
 
-   
-
     public Postagem findById(int id){
        Postagem post = db.queryForObject(
                 "select * from postagem where id = ?;",
