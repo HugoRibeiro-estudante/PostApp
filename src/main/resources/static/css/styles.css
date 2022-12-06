@@ -15,11 +15,11 @@ main {
 }
 
 h1 {
-    font-size: 4rem;
+    font-size: 40px;
 }
 
 h2 {
-    font-size: 2.8rem;
+    font-size: 28px;
 }
 
 .footer-title {
@@ -48,6 +48,7 @@ a {
 }
 
 footer {
+    position: relative;
     background-image: linear-gradient(180deg, #000000 50%, #443091 100%);
     padding: 70px;
 }
@@ -58,6 +59,9 @@ footer {
 }
 
 .ancora {
+    position: absolute;
+    top: 10px;
+    right: 10px;
     width: 40px;
     height: 40px;
     background-image: url(../img/top.png);
@@ -142,24 +146,6 @@ footer {
     color: white;
 }
 
-.btn-register {
-    font-family: 'Inder', sans-serif;
-    background-color: #6A51C5;
-    border: none;
-}
-
-.btn-login {
-    font-family: 'Inder', sans-serif;
-}
-
-.btn-register:hover {
-    background-color: #443091;
-    color: white !important;
-}
-
-.btn-login:hover {
-    color: #000 !important;
-}
 
 .barra {
     height: 100%;
@@ -241,3 +227,8 @@ footer {
     font-size: 30px;
     font-weight: bold;
 }
+
+/* @media only screen and (max-width: 770px) {
+   
+
+} */

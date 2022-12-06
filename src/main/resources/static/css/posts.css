@@ -1,0 +1,31 @@
+@import url('https://fonts.googleapis.com/css2?family=Inder&family=Jockey+One&display=swap');
+
+.btn-category {
+  background-color: black;
+  border-color: #6A51C5;
+  color: #BAAFE4;
+  font-weight: bold;
+}
+
+.btn-category:hover {
+  background-color: #6A51C5;
+  color: white;
+}
+
+.barra {
+  height: 100%;
+  position: relative;
+  border-right: solid 1px rgb(179, 179, 179);
+  padding-right: 20px;
+}
+
+.btn-register {
+  font-family: 'Inder', sans-serif;
+  background-color: #6A51C5;
+  border: none;
+}
+
+.btn-register:hover {
+  background-color: #443091;
+  color: white !important;
+}

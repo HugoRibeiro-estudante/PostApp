@@ -1,0 +1,18 @@
+.btn-register-header {
+  font-family: 'Inder', sans-serif;
+  background-color: #6A51C5;
+  border: none;
+}
+
+.btn-login-header {
+  font-family: 'Inder', sans-serif;
+}
+
+.btn-register-header:hover {
+  background-color: #443091;
+  color: white !important;
+}
+
+.btn-login-header:hover {
+  color: #000 !important;
+}

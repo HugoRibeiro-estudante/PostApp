@@ -1,12 +1,12 @@
 <div class="container" th:fragment="footer">
-    <div class="row gap-5">
-        <div class="col-md-3 text-center box-logos">
+    <div class="row">
+        <div class="col-md text-center mb-5 box-logos">
             <img th:src="@{/img/PostApp.png}" alt="Imagem com o nome PostApp" class="postapp">
-            <img th:src="@{/img/logo-preto.png}" alt="Logo do PostApp" class="logo">
+            <img th:src="@{/img/logo-preto.png}" alt="Logo do PostApp" class="ms-3 logo">
         </div>
 
-        <nav class="col-md-6 d-flex justify-content-around align-items-start gap-5">
-            <div class="d-flex flex-column">
+        <nav class="col-md d-flex flex-column align-items-center mb-5">
+            <div class="d-flex flex-column align-items-start">
                 <p class="footer-title">Menu</p>
                 <ul>
                     <li><a href="">Home</a></li>
@@ -14,7 +14,11 @@
                     <li><a href="">Buscar</a></li>
                 </ul>
             </div>
-            <div class="d-flex flex-column">
+
+        </nav>
+
+        <div class="col-md d-flex flex-column align-items-start mb-5">
+            <div class="d-flex flex-column align-items-start">
                 <p class="footer-title">Desenvolvedores</p>
                 <ul>
                     <li><a href="">Gabriela Oliveira</a></li>
@@ -23,8 +27,8 @@
                     <li><a href="">Mariana Melo</a></li>
                 </ul>
             </div>
-        </nav>
 
-        <a href="#" class="col-md-3 ancora"></a>
+        </div>
     </div>
+    <a href="#" class="ancora"></a>
 </div>

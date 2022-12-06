@@ -34,6 +34,7 @@
 
 .box-content {
   gap: 150px;
+  max-width: 90%;
 }
 
 .username {
