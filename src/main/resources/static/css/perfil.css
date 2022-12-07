@@ -1,0 +1,62 @@
+.box-user-info {
+  position: relative;
+  width: 150px;
+  height: 150px;
+}
+
+.box-user-pic {
+  width: 150px;
+  height: 150px;
+  border-radius: 100px;
+  overflow: hidden;
+}
+
+.user-pic {
+  width: 150px;
+  height: 150px;
+}
+
+.btn-edit-user-pic {
+  position: absolute;
+  background-color: #443091;
+  right: 0;
+  bottom: 0;
+  width: 36px;
+  height: 36px;
+  border: 0;
+  border-radius: 100vw;
+}
+
+.icon-edit {
+  width: 24px;
+  height: 24px;
+}
+
+.box-content {
+  gap: 150px;
+  max-width: 90%;
+}
+
+.username {
+  color: #465C7A;
+  font-size: 40px;
+}
+
+.form-perfil {
+  color: #465C7A;
+}
+
+.form-perfil input {
+  outline: none;
+  border: 0;
+  border-bottom: 1px solid #BAAFE4;
+}
+
+.form-perfil input:focus {
+  border-bottom: 1px solid #443091;
+}
+
+.btn-update {
+  color: #fff;
+  background-color: #443091;
+}
