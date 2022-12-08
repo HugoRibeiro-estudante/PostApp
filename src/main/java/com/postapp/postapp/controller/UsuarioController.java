@@ -43,7 +43,6 @@ public class UsuarioController {
     public ResponseEntity<Boolean> findEmail(@PathVariable String busca) {
         Optional<Usuario> optEmail = usuarioRepository.findByEmail(busca);
         Optional<Usuario> optUsername = usuarioRepository.findByUsername(busca);
-
         if(optEmail.isEmpty() && optUsername.isEmpty()) {
             return ResponseEntity.ok().body(false);
         }
