@@ -118,22 +118,9 @@ insert into postagem(id_usuario, titulo, subtitulo, corpo, create_data) values (
                         </p>
                     </div>''', '2022-11-19T13:00:00');
 
-select * from postagem;
-
-insert into postagem_categorias(id_postagem,id_categoria) values (5,1),(5,5),(5,1),(5,3),(5,1),(5,4),(5,1),(5,2);
-
-insert into comentario(id_postagem, id_usuario, comentario, create_data) values
-                                                                             (5,2,"Otimo conteudo de JAVA SCRIPT", "2022-11-19T13:00:00"),
-                                                                             (5,2,"Otimo conteudo de HTML", "2022-11-19T13:00:00"),
-                                                                             (5,2,"Otimo conteudo de CSS", "2022-11-19T13:00:00"),
-                                                                             (5,2,"Otimo conteudo de JAVA", "2022-11-19T13:00:00"),
-                                                                             (5,1,"eu que fiz JAVA SCRIPT", "2022-11-19T13:00:00"),
-                                                                             (5,1,"eu que fiz HTML", "2022-11-19T13:00:00"),
-                                                                             (5,1,"eu que fiz CSS", "2022-11-19T13:00:00"),
-                                                                             (5,1,"eu que fiz JAVA", "2022-11-19T13:00:00");
+insert into postagem_categorias(id_postagem,id_categoria) values (5,1),(5,5),(5,1);
 
 select * from usuario where username = 'ilussencio' or email = 'ilussencio' and senha = 'password';
-
 select * from postagem where id_usuario = 1 and id != 1 order by rand() limit 3;
 select * from postagem_categorias;
 select * from postagem;
@@ -141,5 +128,11 @@ select * from postagem;
 select p.id, p.titulo, p.subtitulo
 from postagem_categorias join postagem p on postagem_categorias.id_postagem = p.id
 where id_categoria in (1,2,3) order by rand() limit 3;
-show tables;
+
+delete from comentario where id_postagem = 1;
+
+select * from usuario;
+
+select * from comentario;
+truncate table comentario;
 

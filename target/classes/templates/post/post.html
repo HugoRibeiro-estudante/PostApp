@@ -1,13 +1,10 @@
 <!DOCTYPE html>
 <html th:include="template :: modelo">
-
-
-
 <body>
-    <div th:fragment="conteudo" class="container">
+    <div th:fragment="conteudo" class="container-lg">
         <div class="row">
-            <!-- MENU LATERIAL -->
             <div class="col-1">
+                <!-- MENU LATERIAL -->
                 <div class="barra d-flex justify-content-center">
                     <div class="d-flex flex-column justify-content-center gap-3 position-fixed bottom-50">
                         <a href="home"><img class="icon" th:src="@{/img/home.png}" sizes="300px" /></a>
@@ -17,115 +14,51 @@
                 </div>
             </div>
 
-            <!-- POST -->
-            <div class="col-8">
-                <!-- CABEÇALHO DO ARTIGO -->
-                <div class="cabecalho">
-
-                    <h1 class="titulo" th:text="${post.titulo}"></h1>
-                    <h2 class="subtitulo" th:text="${post.subtitulo}"></h2>
-                    <p class="data d-flex align-items-center">
-                        <img th:src="@{/img/calendar.png}" />
-                        <label id="data" th:text="${#temporals.format(post.create_data, 'dd/MM/yyyy')}"> </label>
-                    </p>
-                </div>
-
-                <hr>
-                <!-- CATEGORIAS -->
-                <div class="d-flex flex-row flex-wrap">
-                    <div class="p-2" th:each="categoria:${categorias}">
-                        <button type="button" class="btn btn-sm btn-category" th:text="${categoria.nome}"></button>
-                    </div>
-                </div>
-
-                <!-- POSTAGEM -->
-                <div class="body_post">
-                    <div class="paragrafo">
-                        <p>
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorum maiores ex, perspiciatis,
-                            totam at optio architecto ipsam consectetur mollitia ab reprehenderit officia. Tenetur enim
-                            laborum, debitis veniam adipisci a doloribus.
-                            Eaque quasi a minus numquam excepturi facilis voluptatibus ea assumenda iusto nemo, illum
-                            ratione aliquam maxime! Qui, placeat vel laboriosam distinctio debitis itaque optio deleniti
-                            sint! Quae ab facere non?
-                            Nihil eligendi sit exercitationem eaque corrupti quas quo voluptates numquam. Error culpa
-                            veniam accusantium soluta, recusandae nostrum placeat voluptatum rerum molestias, assumenda
-                            amet iste asperiores quam obcaecati ratione suscipit magnam.
+            <div class="col-11 row align-items-start">
+                <!-- POST -->
+                <div class="col-lg-9">
+                    <!-- CABEÇALHO DO ARTIGO -->
+                    <div class="cabecalho">
+                        <h1 class="titulo" th:text="${post.titulo}"></h1>
+                        <h1 id="id_post" th:text="${post.id}" style="display: none"></h1>
+                        <h2 class="subtitulo" th:text="${post.subtitulo}"></h2>
+                        <p class="data d-flex align-items-center">
+                            <img th:src="@{/img/calendar.png}" />
+                            <label id="data" th:text="${#temporals.format(post.create_data, 'dd/MM/yyyy')}"> </label>
                         </p>
                     </div>
-                    <div class="imagem">
-                        <img src="https://miro.medium.com/max/720/1*JCIT0dCE_SCuDiEu-aTC-Q.webp">
-                        <label>Cobras e burro</label>
-                    </div>
 
-                    <div class="citacao">
-                        <p>
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorum maiores ex, perspiciatis,
-                            totam at optio architecto ipsam consectetur mollitia ab reprehenderit officia. Tenetur enim
-                            laborum, debitis veniam adipisci a doloribus.
-                            Eaque quasi a minus numquam excepturi facilis voluptatibus ea assumenda iusto nemo, illum
-                            ratione aliquam maxime! Qui, placeat vel laboriosam distinctio debitis itaque optio deleniti
-                            sint! Quae ab facere non?
-                            Nihil eligendi sit exercitationem eaque corrupti quas quo voluptates numquam. Error culpa
-                            veniam accusantium soluta, recusandae nostrum placeat voluptatum rerum molestias, assumenda
-                            amet iste asperiores quam obcaecati ratione suscipit magnam.
-                        </p>
-                    </div>
-                    <div class="paragrafo">
-                        <p>
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorum maiores ex, perspiciatis,
-                            totam at optio architecto ipsam consectetur mollitia ab reprehenderit officia. Tenetur enim
-                            laborum, debitis veniam adipisci a doloribus.
-                            Eaque quasi a minus numquam excepturi facilis voluptatibus ea assumenda iusto nemo, illum
-                            ratione aliquam maxime! Qui, placeat vel laboriosam distinctio debitis itaque optio deleniti
-                            sint! Quae ab facere non?
-                            Nihil eligendi sit exercitationem eaque corrupti quas quo voluptates numquam. Error culpa
-                            veniam accusantium soluta, recusandae nostrum placeat voluptatum rerum molestias, assumenda
-                            amet iste asperiores quam obcaecati ratione suscipit magnam.
-                        </p>
-                    </div>
-                    <div class="subtitulo">
-                        <p>Subtitulo</p>
-                    </div>
-
-                    <div class="paragrafo">
-                        <p>
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorum maiores ex, perspiciatis,
-                            totam at optio architecto ipsam consectetur mollitia ab reprehenderit officia. Tenetur enim
-                            laborum, debitis veniam adipisci a doloribus.
-                            Eaque quasi a minus numquam excepturi facilis voluptatibus ea assumenda iusto nemo, illum
-                            ratione aliquam maxime! Qui, placeat vel laboriosam distinctio debitis itaque optio deleniti
-                            sint! Quae ab facere non?
-                            Nihil eligendi sit exercitationem eaque corrupti quas quo voluptates numquam. Error culpa
-                            veniam accusantium soluta, recusandae nostrum placeat voluptatum rerum molestias, assumenda
-                            amet iste asperiores quam obcaecati ratione suscipit magnam.
-                        </p>
-                    </div>
-                </div>
-
-                <hr>
-                <div th:each="comentario : ${comentario}">
-                    <div class="d-flex gap-3 comment">
-                        <div>
-                            <img class="comment_img" th:src="${comentario.id_usuario.foto}" />
-                        </div>
-                        <div>
-                            <a th:href="@{'/usuario/'+${comentario.id_usuario.username}}"><Label class="comment_name"
-                                    th:text="${comentario.id_usuario.nome}"></Label></a>
-                            <p class="comment_text" th:text="${comentario.comentario}"></p>
+                    <hr>
+                    <!-- CATEGORIAS -->
+                    <div class="d-flex flex-row flex-wrap">
+                        <div class="p-2" th:each="categoria:${categorias}">
+                            <button type="button" class="btn btn-sm btn-category" th:text="${categoria.nome}"></button>
                         </div>
                     </div>
-                </div>
-                <hr>
-                <div>
 
-                </div>
-            </div>
+                    <!-- POSTAGEM (ADICIONADO DINAMICAMENTE PELO THYMELEAF) -->
+                    <div class="body_post" th:utext="${post.corpo}"></div>
 
-            <!-- AUTOR -->
-            <!-- MENU LATERIAL -->
-            <div class="col-3">
-                <div class="autor">
+                    <hr>
+
+                    <!-- COMENTARIO (ADICIONADO DINAMICAMENTE COM JAVA SCRIPT) -->
+                    <div id="comments"></div>
+
+                    <div class="d-flex flex-column gap-1 mt-3">
+                        <div class="form-floating">
+                            <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea2" style="height: 100px" name="text_comment" onchange="commentCont()" onkeydown="commentCont()"></textarea>
+                            <label for="floatingTextarea2">Deixe um comentario:</label>
+                        </div>
+                        <p class="fs-6">Resta <label id="comment_cont">255</label> caracteres!</p>
+                        <p id="comment_error"></p>
+                        <button class="btn btn-outline-light btn-register" id="comment_button" onclick="addComment()" disabled>Adicionar Comentario</button>
+                    </div>
+
+                    <BR>
+                </div>
+                <!-- AUTOR -->
+                <!-- MENU LATERIAL -->
+                <div class="autor col-lg-3">
                     <img th:src="${usuario.foto}" />
                     <p th:text="${usuario.nome}"></p>
                     <div>
@@ -134,20 +67,19 @@
 
                     <button type="button" class="btn btn-outline-light btn-register">seguir</button>
 
-                    <div th:each="postagems : ${postagems}">
-                        <div class="card">
-                            <div class="card-body d-flex flex-column gap-2">
-                                <h5 class="card-title" th:text="${postagems.titulo}"></h5>
-                                <p class="card-text" th:text="${postagems.subtitulo}"></p>
-                                <a th:href="@{'/post/'+${postagems.id}}"
-                                    class="btn btn-outline-light btn-register btn-card">Ler artigo</a>
-                            </div>
+                    <div th:each="postagems : ${postagems}" class="card">
+                        <div class="card-body d-flex flex-column gap-2">
+                            <h5 class="card-title" th:text="${postagems.titulo}"></h5>
+                            <p class="card-text" th:text="${postagems.subtitulo}"></p>
+                            <a th:href="@{'/post/'+${postagems.id}}"
+                                class="btn btn-outline-light btn-register btn-card">Ler artigo</a>
                         </div>
                     </div>
 
                 </div>
             </div>
         </div>
+        <script th:src="@{/js/comment.js}"></script>
     </div>
 </body>
 

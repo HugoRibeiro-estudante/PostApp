@@ -112,14 +112,16 @@ footer {
 }
 
 .card {
-    width: 300px;
+    width: 100%;
 }
 
 .card-title {
-    font-size: 22px;
+    text-align: center;
+    font-size: 25px;
 }
 
 .card-text {
+    text-align: center;
     font-size: 15px;
 }
 
@@ -146,12 +148,35 @@ footer {
     color: white;
 }
 
+.btn-register {
+    font-family: 'Inder', sans-serif;
+    background-color: #6A51C5;
+    border: none;
+}
+
+.btn-register:hover {
+    background-color: #443091;
+    color: white !important;
+}
+
+.btn-register:disabled {
+    background-color: #BAAFE4;
+}
+
+.btn-login {
+    font-family: 'Inder', sans-serif;
+}
+
+.btn-login:hover {
+    color: #000 !important;
+}
 
 .barra {
     height: 100%;
     position: relative;
     border-right: solid 1px rgb(179, 179, 179);
     padding-right: 20px;
+    padding-left: 5px;
 }
 
 .icon {
@@ -162,11 +187,7 @@ footer {
     padding: 10px;
 }
 
-.comment a {
-    color: #443091;
-}
-
-.comment a:hover {
+.comment_name:hover {
     cursor: pointer;
     color: #6A51C5;
 }
@@ -182,6 +203,7 @@ footer {
 .comment_name {
     margin-bottom: 10px;
     font-weight: bold;
+    font-size: 16px;
 }
 
 .comment_text {
@@ -228,7 +250,8 @@ footer {
     font-weight: bold;
 }
 
-/* @media only screen and (max-width: 770px) {
-   
-
-} */
+.p-small {
+    font-size: 13px;
+    color: gray;
+    margin-top: 5px;
+}
