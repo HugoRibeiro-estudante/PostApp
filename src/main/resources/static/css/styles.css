@@ -12,6 +12,7 @@ main {
 .logo {
     width: 90px;
     height: 70px;
+    margin: auto;
 }
 
 h1 {
@@ -39,7 +40,7 @@ li {
 a {
     color: #fff;
     text-decoration: none;
-    font-size: 12px;
+    font-size: 10px;
     font-family: 'Inder', arial;
 }
 
