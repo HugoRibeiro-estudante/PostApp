@@ -10,7 +10,7 @@ p {
     font-style: italic;
     font-size: 20px;
     color: grey;
-    padding: 20px;  
+    padding: 20px 0px 20px 0px;  
     height: 50px;
 }
 
@@ -22,11 +22,17 @@ input[type="button"] {
     border-radius: 30px;
     color: #fff;
     border: 1px black solid; 
+    text-align: center;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;   
 }
 
 .boxartigo {
     padding: 50px;
 }
 
+.caixa{
+    
 
-
+}
