@@ -32,6 +32,11 @@ p {
   padding: 50px;
 }
 
-.divTxtarea {
+.containerTextArea {
   position: relative;
+}
+
+.actions {
+  text-align: center;
+  margin-top: 10px;
 }
