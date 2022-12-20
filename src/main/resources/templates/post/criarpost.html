@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" th:include="template :: modelo">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PostApp</title>
+</head>
+
+<body>
+  <main th:fragment="conteudo" class="mycontainer">
+    <link rel="stylesheet" href="/css/post.css">
+    <link rel="stylesheet" href="/css/button.css">
+
+
+    <div class="row">
+      <div th:replace="barra :: barra"></div>
+
+      <div class="col-md-11">
+        <div>
+          <h1>CRIAR POST</h1>
+        </div>
+
+        <!--caixas de texto-->
+        <div class="container">
+
+          <p>Artigo:</p>
+
+          <!-- </script> -->
+
+          <div>
+            <textarea id="tiny"></textarea>
+          </div>
+
+          <!--botão postar-->
+          <input type="button" value="Postar" class="botão">
+        </div>
+      </div>
+      <script src="https://cdn.tiny.cloud/1/xrmkjerjj1h26t825dg9qbb2rck22d53v1t472r77qda59w4/tinymce/6/tinymce.min.js"
+        referrerpolicy="origin"></script>
+      </script>
+      <script th:src="@{/js/button.js}"></script>
+    </div>
+  </main>
+
+</body>
+
+</html>

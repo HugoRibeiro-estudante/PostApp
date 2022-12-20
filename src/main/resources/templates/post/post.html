@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html th:include="template :: modelo">
+
 <body>
     <div th:fragment="conteudo" class="container-lg">
         
@@ -48,12 +49,15 @@
                     <!-- COMENTARIO (INSERIR COMENTARIO) -->
                     <div class="d-flex flex-column mt-3">
                         <div class="form-floating">
-                            <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea2" style="height: 100px" name="text_comment" onchange="commentCont()" onkeydown="commentCont()"></textarea>
+                            <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea2"
+                                style="height: 100px" name="text_comment" onchange="commentCont()"
+                                onkeydown="commentCont()"></textarea>
                             <label for="floatingTextarea2">Deixe um comentario:</label>
                         </div>
                         <p class="fs-6">Resta <label id="comment_cont">255</label> caracteres!</p>
-                        <button class="btn btn-outline-light btn-register" id="comment_button" onclick="addComment()" disabled>Adicionar Comentario</button>
                         <p id="comment_error"></p>
+                        <button class="btn btn-outline-light btn-register" id="comment_button" onclick="addComment()"
+                            disabled>Adicionar Comentario</button>
                     </div>
 
                     <!-- COMENTARIO (ADICIONADO DINAMICAMENTE COM JAVA SCRIPT) -->
