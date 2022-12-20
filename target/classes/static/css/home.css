@@ -5,10 +5,11 @@
 }
 
 
+
+
 h3 {
     font-family: 'Jockey One', sans-serif;
     padding: 10px;
-
     text-align: center;
     margin: 70px 0px 0px 0px;
     font-size: 36px;
@@ -17,26 +18,36 @@ h3 {
 .share {
     background-image: url('../img/share.png');
     background-repeat: no-repeat;
-    background-position: center right 140px;
+    background-position: center right 120px;
 }
 
 .search {
     background-image: url('../img/search.png');
     background-repeat: no-repeat;
-    background-position: center right 140px;
+    background-position: center right 150px;
 }
 
-.categorias {
-    background-color: black;
-    color: #BAAFE4;
-    font-family: 'Jockey One';
-    box-shadow: 10px 10px 12px gray;
-    padding: 5px;
-    border-radius: 10px;
-    margin: 10px;
-    font-size: 16px;
+.btn-purple{
 
+    background-color: #DDA6FF;
+    border-radius: 30px;
+    padding: 10px;
+    margin: 30px 0px;
 }
+
+.btn-purple:hover{
+
+    background-color: white;
+    border: 2px dashed #DDA6FF;
+}
+
+.btn-purple > a{
+
+    color: black;
+    font-weight:bolder;
+    font-size: 20px;
+}
+
 
 #button-search {
     background-image: url('../img/search.png');
@@ -89,15 +100,43 @@ p {
 
     .share {
 
-        background-position: center right 50px;
+        background-position: center right 40px;
 
     }
 
     .search {
 
-        background-position: center right 50px;
+        background-position: center right 40px;
 
     }
+
+    img{
+      width: 80%;
+    }
+
+
+
+}
+
+@media only screen and (min-width: 601px) and (max-width: 1000px) {
+
+    .results {
+        width: 50%;
+        margin-top: 10px;
+    }
+
+    .share {
+
+        background-position: center right 20px;
+
+    }
+
+    .search {
+
+        background-position: center right 20px;
+
+    }
+
 
 
 }

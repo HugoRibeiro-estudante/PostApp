@@ -1,7 +1,9 @@
-<div th:fragment="barra" class="col-1 position-relative shadow">
-    <div class="d-flex flex-column align-items-center position-absolute top-50 start-50 translate-middle">
-        <a href="home"><img th:src="@{/img/home.png}" /></a>
-        <a href="home" class="mt-5 pt-5"><img th:src="@{/img/pen.png}" /></a>
-        <a href="home" class="mt-5 pt-5"><img th:src="@{/img/bookmark.png}" /></a>
+<div th:fragment="barra" class="col-1 justify-content-center">
+    <div class="barra d-flex justify-content-center">
+        <div class="d-flex flex-column justify-content-center gap-3 position-fixed bottom-50">
+            <a href="home"><img class="icon" th:src="@{/img/home.png}" sizes="300px" /></a>
+            <a href="home"><img class="icon" th:src="@{/img/pen.png}" /></a>
+            <a href="home"><img class="icon" th:src="@{/img/bookmark.png}" /></a>
+        </div>
     </div>
 </div>

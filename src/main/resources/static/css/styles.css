@@ -19,30 +19,6 @@ main {
     width: 90px;
     height: 70px;
     margin: auto;
-    width: 55px;
-    height: 55px;
-    margin: 0 auto;
-
-}
-
-.user-info {
-    display: flex;
-    gap: 12px;
-    align-items: center;
-    padding-right: 5rem;
-}
-
-.username {
-    color: #fff;
-    font-weight: bold;
-    font-size: 1.5rem;
-}
-
-.user-pic {
-    height: 42px;
-    width: 42px;
-    border-radius: 100px;
-    background-color: #fff;
 }
 
 h1 {
@@ -70,7 +46,7 @@ li {
 a {
     color: #fff;
     text-decoration: none;
-    font-size: 12px;
+    font-size: 10px;
     font-family: 'Inder', arial;
 }
 

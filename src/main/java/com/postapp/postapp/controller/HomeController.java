@@ -9,4 +9,9 @@ public class HomeController {
   public String Home() {
     return "home/home-logoff";
   }
+
+  @GetMapping("/home-logoff")
+  public String LogOff() {
+    return "home/home-logoff";
+  }
 }
