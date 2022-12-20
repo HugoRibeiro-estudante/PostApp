@@ -1,6 +1,7 @@
 create database articlesys;
 use articlesys;
 
+
 create table usuario(
     id int auto_increment primary key not null,
     nome varchar(40) not null,
@@ -80,7 +81,7 @@ insert into comentario(id_postagem, id_usuario, comentario, create_data) values
 (3,1,"eu que fiz CSS", "2022-11-19T13:00:00"),
 (4,1,"eu que fiz JAVA", "2022-11-19T13:00:00");
 
-insert into postagem(id_usuario, titulo, subtitulo, corpo, create_data) values (2,'SELEÇAO BRASILEIRA', 'VITORIA 4 X 0','''<div class="paragrafo">
+insert into postagem(id_usuario, titulo, subtitulo, corpo, create_data) values (2,'ARTIGO TESTE', 'TESTE','''<div class="paragrafo">
                         <p>
                             Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorum maiores ex, perspiciatis, totam at optio architecto ipsam consectetur mollitia ab reprehenderit officia. Tenetur enim laborum, debitis veniam adipisci a doloribus.
                             Eaque quasi a minus numquam excepturi facilis voluptatibus ea assumenda iusto nemo, illum ratione aliquam maxime! Qui, placeat vel laboriosam distinctio debitis itaque optio deleniti sint! Quae ab facere non?

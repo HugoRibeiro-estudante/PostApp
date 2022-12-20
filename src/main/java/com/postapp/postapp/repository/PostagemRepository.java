@@ -9,6 +9,8 @@ import org.springframework.stereotype.Repository;
 
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
+import java.util.Collection;
+import java.util.Collections;
 import java.util.List;
 
 @Repository
@@ -72,17 +74,22 @@ public class PostagemRepository {
     }
 
     public List<Postagem> findBy(List<Categoria> cat, int limit){
-        Object[] categorias = cat.stream().map(x -> x.getId()).toArray();
+        String inSql = String.join(",", Collections.nCopies(cat.size(), "?"));
 
         List<Postagem> list = db.query(
-                "select p.id, p.titulo, p.subtitulo from postagem_categorias join postagem p on postagem_categorias.id_postagem = p id where id_categoria in (?) order by rand() limit ?;",
+                String.format("select  p.id, p.titulo, p.subtitulo, p.create_data from postagem_categorias pc inner join postagem p on pc.id_postagem = p.id inner join categorias c on pc.id_categoria = c.id where c.nome in (%s) order by p.create_data desc limit 3;", inSql),
                 (rs, rowNum) -> {
                     Postagem postagem = new Postagem();
                     postagem.setId(rs.getInt("id"));
                     postagem.setTitulo(rs.getString("titulo"));
                     postagem.setSubtitulo(rs.getString("subtitulo"));
+                    DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
+                    LocalDateTime localDateTime = LocalDateTime.parse(rs.getString("create_data"), dateTimeFormatter);
+                    postagem.setCreate_data(localDateTime);
                     return postagem;
-                },categorias, limit);
+                },
+                cat.stream().map(x -> x.getNome()).toArray()
+            );
         return list;
     }
 

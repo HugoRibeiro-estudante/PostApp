@@ -3,25 +3,77 @@
 
 <body>
     <div th:fragment="conteudo">
-        
-        
-        <h1>Informação do usuario</h1>
+        <style>
+            .userPhoto{
+                width: 200px;
+                border-radius: 20px;
+                border: 5px solid #443091;
+            }
 
-        <ul th:each="usuario : ${usuario}">
-            <li th:text="${usuario.nome}"></li>
-            <li th:text="${usuario.telefone}"></li>
-            <li th:text="${usuario.email}"></li>
-            <li th:text="${usuario.username}"></li>
-            <li th:text="${usuario.foto}"></li>
-        </ul>
+            .card {
+                width: 300px;
+            }
 
-        <h1>Postagens</h1>
-        <ul th:each="postagems : ${postagems}">
-            <li><a th:href="@{'/post/'+${postagems.id}}"> link </a></li>
-            <li th:text="${postagems.titulo}"></li>
-            <li th:text="${postagems.subtitulo}"></li>
-            <li th:text="${postagems.create_data}"></li>
-        </ul>
+            .card-title {
+                text-align: center;
+                font-size: 25px;
+            }
+
+            .card-text {
+                text-align: center;
+                font-size: 15px;
+            }
+
+            .card a {
+                color: #fff;
+            }
+            .btn-register {
+                font-family: 'Inder', sans-serif;
+                background-color: #6A51C5;
+                border: none;
+            }
+
+            .btn-register:hover {
+                background-color: #443091;
+                color: white !important;
+            }
+
+            .btn-register:disabled {
+                background-color: #BAAFE4;
+            }
+            .name{
+                font-size: 20px;
+                font-weight: bold;
+                margin-top: 20px;
+                color: #443091;
+            }
+            .autor{
+                text-align: center;
+            }
+        </style>
+        <div class="container">
+            <div class="row m-4 justify-content-center">
+                <div class="col-md-4 autor">
+                    <img class="userPhoto" th:src="${usuario.foto}">
+                    <p class="name" th:text="${usuario.nome}"></p>
+                    <p>Telefone: <lable th:text="${usuario.telefone}"></lable></p>
+                    <p>E-mail: <label th:text="${usuario.email}"></label></p>
+                    <p>Usuario: <label th:text="${usuario.username}"></label></p>
+                </div>
+                <div class="col-md-8 row posts">
+                    <div th:each="postagems : ${postagems}" class="card m-1">
+                        <div class="card-body d-flex flex-column gap-2 justify-content-between">
+                            <h5 class="card-title" th:text="${postagems.titulo}"></h5>
+                            <p class="card-text" th:text="${postagems.subtitulo}"></p>
+                            <p class="card-text" th:text="${#temporals.format(postagems.create_data, 'dd/MM/yyyy')}"></p>
+                            <a th:href="@{'/post/'+${postagems.id}}"
+                                class="btn btn-outline-light btn-register">Ler artigo</a>
+                        </div>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
     </div>
 </body>
 

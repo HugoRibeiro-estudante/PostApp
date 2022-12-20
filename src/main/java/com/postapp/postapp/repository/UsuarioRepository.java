@@ -129,7 +129,7 @@ public class UsuarioRepository {
                 usuario.getEmail(),
                 usuario.getSenha(),
                 usuario.getUsername(),
-                "user.png",
+                "/img/user.png",
                 "USER"
                 );
     }

@@ -3,13 +3,14 @@
 <body>
     <div th:fragment="conteudo" class="container-lg">
         
-    <link rel="stylesheet" href="/css/styles.css">
+    <link rel="stylesheet" href="/css/post.css">
+
         <div class="row">
             <div class="col-1">
                 <!-- MENU LATERIAL -->
                 <div class="barra d-flex justify-content-center">
                     <div class="d-flex flex-column justify-content-center gap-3 position-fixed bottom-50">
-                        <a href="home"><img class="icon" th:src="@{/img/home.png}" sizes="300px" /></a>
+                        <a href="../home"><img class="icon" th:src="@{/img/home.png}" sizes="300px" /></a>
                         <a href="home"><img class="icon" th:src="@{/img/pen.png}" /></a>
                         <a href="home"><img class="icon" th:src="@{/img/bookmark.png}" /></a>
                     </div>
@@ -43,20 +44,32 @@
 
                     <hr>
 
-                    <!-- COMENTARIO (ADICIONADO DINAMICAMENTE COM JAVA SCRIPT) -->
-                    <div id="comments"></div>
-
-                    <div class="d-flex flex-column gap-1 mt-3">
+                    
+                    <!-- COMENTARIO (INSERIR COMENTARIO) -->
+                    <div class="d-flex flex-column mt-3">
                         <div class="form-floating">
                             <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea2" style="height: 100px" name="text_comment" onchange="commentCont()" onkeydown="commentCont()"></textarea>
                             <label for="floatingTextarea2">Deixe um comentario:</label>
                         </div>
                         <p class="fs-6">Resta <label id="comment_cont">255</label> caracteres!</p>
-                        <p id="comment_error"></p>
                         <button class="btn btn-outline-light btn-register" id="comment_button" onclick="addComment()" disabled>Adicionar Comentario</button>
+                        <p id="comment_error"></p>
                     </div>
 
-                    <BR>
+                    <!-- COMENTARIO (ADICIONADO DINAMICAMENTE COM JAVA SCRIPT) -->
+                    <div id="comments"></div>
+                    <hr>
+                    <!-- SUGESTAO DE LEITURA -->
+                    <div class="row justify-content-center gap-1">
+                        <div th:each="sugestao : ${sugestao}" class="col-sm-3 card">
+                            <div class="card-body d-flex flex-column justify-content-between">
+                                <h5 class="card-title" th:text="${sugestao.titulo}"></h5>
+                                <p class="card-text" th:text="${sugestao.subtitulo}"></p>
+                                <p class="card-text" th:text="${#temporals.format(post.create_data, 'dd/MM/yyyy')}"></p>
+                                <a th:href="@{'/post/'+${sugestao.id}}" class="btn btn-outline-light btn-register btn-card">Ler artigo</a>
+                            </div>
+                        </div>
+                    </div>
                 </div>
                 <!-- AUTOR -->
                 <!-- MENU LATERIAL -->
@@ -69,15 +82,14 @@
 
                     <button type="button" class="btn btn-outline-light btn-register">seguir</button>
 
-                    <div th:each="postagems : ${postagems}" class="card">
-                        <div class="card-body d-flex flex-column gap-2">
+                    <div th:each="postagems : ${postagems}" class="card card-left">
+                        <div class="card-body d-flex flex-column gap-2 justify-content-between">
                             <h5 class="card-title" th:text="${postagems.titulo}"></h5>
                             <p class="card-text" th:text="${postagems.subtitulo}"></p>
                             <a th:href="@{'/post/'+${postagems.id}}"
                                 class="btn btn-outline-light btn-register btn-card">Ler artigo</a>
                         </div>
                     </div>
-
                 </div>
             </div>
         </div>
