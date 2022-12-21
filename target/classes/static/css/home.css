@@ -4,9 +4,6 @@
     font-family: 'Inder', 'Times New Roman', Times, serif;
 }
 
-
-
-
 h3 {
     font-family: 'Jockey One', sans-serif;
     padding: 10px;
@@ -15,6 +12,9 @@ h3 {
     font-size: 36px;
 }
 
+P{
+    text-align: center;
+}
 .share {
     background-image: url('../img/share.png');
     background-repeat: no-repeat;
