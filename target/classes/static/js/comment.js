@@ -13,9 +13,11 @@ async function updateComment(){
             'Content-Type': 'application/json'
         })
     })
+
     const response = await fetch(request)
         .then(res => res.json())
         .then(res => comment(res))
+    
 }
 
 function comment(comentario){
@@ -86,7 +88,7 @@ function commentCont(){
     text = document.getElementsByName('text_comment')[0];
     button = document.getElementById('comment_button')
     document.getElementById('comment_cont').innerHTML = 255 - text.value.length
-    if(text.value.length > 0 && text.value.length <= 255 && username && user_id){
+    if(text.value.length > 0 && text.value.length <= 255){
         button.disabled = false
     }else{
         button.disabled = true

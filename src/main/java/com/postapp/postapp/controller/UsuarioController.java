@@ -15,9 +15,12 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import java.security.Principal;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
+
+import javax.servlet.http.HttpServletRequest;
 
 @Controller
 @RequestMapping("/usuario")
@@ -30,12 +33,21 @@ public class UsuarioController {
     CategoriaRepository categoriaRepository;
 
     @GetMapping("/{username}")
-    public String postsUser(@PathVariable String username, Model model) {
+    public String postsUser(@PathVariable String username, Model model, HttpServletRequest request) {
         Optional<Usuario> opt = usuarioRepository.findByUsername(username);
         Usuario usuario = opt.get();
         List<Postagem> postagems = postagemRepository.findBy(usuario);
         model.addAttribute("usuario", usuario);
         model.addAttribute("postagems", postagems);
+
+        try {
+            Principal principal = request.getUserPrincipal();
+            Usuario usr = usuarioRepository.findByUsername(principal.getName()).get();
+            model.addAttribute("userlog", usr);
+        } catch (Exception e) {
+            System.out.println(e);
+        }
+        
         return "post/posts_for_user";
     }
 

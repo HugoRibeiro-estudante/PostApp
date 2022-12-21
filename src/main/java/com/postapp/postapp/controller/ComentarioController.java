@@ -25,14 +25,10 @@ public class ComentarioController {
     repository.save(comentario);
     return ResponseEntity.ok().body(comentario);
   }
-
   @PostMapping("/get")
   public ResponseEntity<List<Comentario>> findAll(@RequestBody Postagem post) {
-    
     List<Comentario> list = repository.findBy(post);
     System.out.println(list);
     return ResponseEntity.ok().body(list);
   }
-
-
 }

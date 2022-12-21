@@ -9,39 +9,54 @@
 </head>
 
 <body>
-  <main th:fragment="conteudo" class="mycontainer">
+  <main th:fragment="conteudo">
     <link rel="stylesheet" href="/css/post.css">
-    <link rel="stylesheet" href="/css/button.css">
 
+    <div class="container row ">
+      <div class="col-1">
+        <div th:replace="barra :: barra"></div>
+      </div>
+      
 
-    <div class="row">
-      <div th:replace="barra :: barra"></div>
-
-      <div class="col-md-11">
+      <div class="col-11">        
         <div>
           <h1>CRIAR POST</h1>
-        </div>
+        </div>       
 
         <!--caixas de texto-->
-        <div class="container">
+        <div>
+          <label for="title" class="form-label">Titulo</label>
+          <input type="text" class="form-control" id="title" > 
+          
+          <label for="subtitle" class="form-label">SubTitulo</label>
+          <input type="text" class="form-control" id="subtitle" > 
+          
+          <label for="subtitle" class="form-label">Categorias</label>
+          <BR>
+          
+          <div th:each="categorias:${categorias}" class="btn-group" role="group" aria-label="Basic checkbox toggle button group">
+            <input type="checkbox" class="btn-check" th:id="${categorias.id}" th:value="${categorias.id}"  autocomplete="off">
+            <label class="btn btn-outline-primary" th:for="${categorias.id}" th:text="${categorias.nome}"></label>
+          </div>
 
-          <p>Artigo:</p>
+          <br>
 
+          <label class="form-label">Artigo</label>
           <!-- </script> -->
-
           <div>
             <textarea id="tiny"></textarea>
           </div>
-
           <!--botão postar-->
-          <input type="button" value="Postar" class="botão">
+          <input type="button" onclick="send()" value="Postar" class="botão">
         </div>
       </div>
-      <script src="https://cdn.tiny.cloud/1/xrmkjerjj1h26t825dg9qbb2rck22d53v1t472r77qda59w4/tinymce/6/tinymce.min.js"
-        referrerpolicy="origin"></script>
-      </script>
-      <script th:src="@{/js/button.js}"></script>
+
+      
     </div>
+
+    <script src="https://cdn.tiny.cloud/1/xrmkjerjj1h26t825dg9qbb2rck22d53v1t472r77qda59w4/tinymce/6/tinymce.min.js" referrerpolicy="origin"></script>
+    </script>
+    <script th:src="@{/js/button.js}"></script>
   </main>
 
 </body>

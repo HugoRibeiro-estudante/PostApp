@@ -1,11 +1,11 @@
-<!DOCTYPE html>
+
 <html th:include="acessos/template :: acesso_modelo">
 
 <body>
     <main class="d-flex flex-column justify-content-center align-items-center" th:fragment="conteudo">
         <div class="box-register">
             <h2 class="access-title">Cadastro</h2>
-            <form action="/cadastro" method="post" class="register-form" th:object="${user}">
+            <form th:action="@{/cadastro}" method="post" class="register-form" th:object="${user}">
                 <fieldset>
                     <input type="text" name="nome" id="nome" onkeypress="removeMsg('msg-nome')" class="w-100"
                         placeholder="Nome" th:field="*{nome}">

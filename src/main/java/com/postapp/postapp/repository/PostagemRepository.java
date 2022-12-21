@@ -111,4 +111,18 @@ public class PostagemRepository {
         return post;
     }
 
+    public List<Postagem> findBy(String busca){
+        List<Postagem> list = db.query(
+                "select distinct p.id, p.titulo, p.subtitulo, p.id_usuario from postagem_categorias pc inner join postagem p on pc.id_postagem = p.id inner join categorias c ON pc.id_categoria = c.id  where UPPER(p.titulo) like UPPER(?) or UPPER(c.nome) like UPPER(?);",
+                (rs, rowNum) -> {
+                    Postagem postagem = new Postagem();
+                    postagem.setId(rs.getInt("id"));
+                    postagem.setTitulo(rs.getString("titulo"));
+                    postagem.setSubtitulo(rs.getString("subtitulo"));
+                    postagem.setId_usuario(usuarioRepository.findById(rs.getInt("id_usuario")));
+                    return postagem;
+                },
+                "%"+busca+"%","%"+busca+"%");
+        return list;
+    }
 }

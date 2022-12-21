@@ -1,8 +1,27 @@
 <div class="boxHeader" th:fragment="header">
+    
     <img th:src="@{/img/logo-preto.png}" alt="Logo do PostApp" class="logo">
+  
 
-    <nav id="user-info" class="user-info"></nav>
-    <!-- teste -->
-    <script src="/js/login.js"></script>
+    <nav id="user-info" class="user-info" sec:authorize="!isAuthenticated()">
+        <a href="/cadastro"><button class="btn btn-outline-light btn-register">Cadastre-se</button></a>
+        <a href="/login"><button class="btn btn-outline-light btn-login">Entrar</button></a>
+    </nav>
 
+    <nav id="user-info" class="user-info" sec:authorize="isAuthenticated()">
+        <span class="username" th:text="${userlog.nome}">Lucas Ilussencio da silva</span>
+        <img class="user-pic"th:src="${userlog.foto}">
+    </nav>
+
+    <div class="align-self-center">
+        <form th:action="@{/logout}" method="post" sec:authorize="isAuthenticated()">
+            <input class="btn btn-secondary btn-sm p-1 small" type="submit" value="Sair" />
+        </form>
+
+        <a href="/login" sec:authorize="!isAuthenticated()" class="btn btn-secondary btn-sm p-1 small">Entrar</a>
+    </div>
+
+    
+    <!-- teste 
+    <script src="/js/login.js"></script>-->
 </div>

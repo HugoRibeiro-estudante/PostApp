@@ -4,6 +4,7 @@ import com.postapp.postapp.model.Usuario;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
@@ -123,6 +124,9 @@ public class UsuarioRepository {
 
 
     public void save(Usuario usuario) {
+        BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
+        String encodePassword = passwordEncoder.encode(usuario.getSenha());
+        usuario.setSenha(encodePassword);
         db.update("insert into usuario(nome, telefone, email, senha, username, foto, perfil) values (?, ?, ?,?,?, ?,?);",
                 usuario.getNome(),
                 usuario.getTelefone(),

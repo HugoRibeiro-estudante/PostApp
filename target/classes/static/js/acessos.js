@@ -32,6 +32,7 @@ async function validateForm() {
   } else {
     error_user.style.display = "none";
     url = `http://${host}/usuario/find/${user.value}`;
+    
     const response = await fetch(url);
     if (response.ok) {
       const json = await response.json();
@@ -57,6 +58,7 @@ async function validateForm() {
     error_email.style.display = "none";
     url = `http://${host}/usuario/find/${email.value}`;
     const response = await fetch(url);
+   
     if (response.ok) {
       const json = await response.json();
       if (json === true) {

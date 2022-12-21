@@ -33,3 +33,20 @@ plugins: [
   toolbar: 'undo redo | a11ycheck casechange blocks | bold italic backcolor | alignleft aligncenter alignright alignjustify |' +
       'bullist numlist checklist outdent indent | removeformat | code table help'
 })
+
+var send = () => {
+  var tiny = tinymce.get("tiny").getContent();
+  var title = document.getElementById("title")
+  var subtitle = document.getElementById("subtitle")
+  var categoryList = []
+  var category = document.querySelectorAll('.btn-check');
+  for(i = 0; i < category.length; i ++){
+    if(category[i].checked)
+      categoryList.push(category[i].value)
+  }
+  
+  console.log(title.value)
+  console.log(subtitle.value)
+  console.log(categoryList)
+  console.log(tiny);
+}

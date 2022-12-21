@@ -15,24 +15,14 @@ body {
     overflow: hidden;
 }
 
-header {
-    display: flex;
-    justify-content: flex-end;
-}
+
 
 main {
     height: 80%;
     gap: 12px;
 }
 
-.box-logo {
-    padding: 10px 40px;
-}
 
-.logo {
-    width: 100px;
-    height: 66px;
-}
 
 .box-login {
     display: flex;
@@ -149,3 +139,18 @@ input:is([type="text"], [type="password"], [type="tel"]):focus {
 .login-message {
     font-family: 'Jockey One', sans-serif;
 }
+
+.logo {
+    width: 90px;
+    height: 70px;
+    margin: auto;
+}
+
+.box-logo {
+    padding: 10px 40px;
+}
+header{
+    display: flex;
+    justify-content: flex-end;
+}
+  

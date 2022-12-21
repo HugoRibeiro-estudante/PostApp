@@ -12,12 +12,12 @@
 
   <main th:fragment="conteudo" class="container">
 
-  <script src="/js/button.js"></script>
-
+    <script src="/js/findPost.js"></script>
+    <link rel="stylesheet" href="/css/home.css">
     <div class="row">
       <div th:replace="barra :: barra"></div>
 
-      <div class="col-md-11">
+      <div class="col-md-10">
         <section class="row border-bottom">
           <div class="col-md-6 col-sm-12">
             <div>
@@ -58,38 +58,14 @@
             <!-- <input type="search" name="" id="pesquisa" class="p-3 w-50 m-auto"> -->
             <div class="input-group mb-3 w-75 m-auto">
               <input type="seach" class="form-control p-3 fs-3" placeholder="Pesquise" aria-label="Pesquise"
-                aria-describedby="button-search">
+                aria-describedby="button-search" id="textFind" onchange="find()">
               <button class="btn btn-outline-secondary" type="button" id="button-search"></button>
             </div>
           </section>
 
-          <section class="d-flex justify-content-evenly flex-wrap">
-            <div class="results">
-              <p class="title">HTML E CSS</p>
-              <p class="by">Por: <span class="author">Gabriela Oliveira</span></p>
-            </div>
-            <div class="results">
-              <p class="title">HTML5 e CSS3</p>
-              <p class="by">Por: <span class="author">Hugo Ribeiro</span></p>
-            </div>
-            <div class="results">
-              <p class="title">HTML</p>
-              <p class="by">Por: <span class="author">Lucas Ilussencio</span></p>
-            </div>
-            <div class="results">
-              <p class="title">CSS</p>
-              <p class="by">Por: <span class="author">Mariana Melo</span></p>
-            </div>
-            <div class="results">
-              <p class="title"></p>
-              <p class="by">Por :</p>
-              <p class="author"></p>
-            </div>
-            <div class="results">
-              <p class="title"></p>
-              <p class="by">Por :</p>
-              <p class="author"></p>
-            </div>
+          <section class="d-flex justify-content-evenly flex-wrap" id="result">
+            
+            
           </section>
 
         </div>
