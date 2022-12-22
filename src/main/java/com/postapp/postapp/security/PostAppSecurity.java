@@ -41,6 +41,7 @@ public class PostAppSecurity {
           .anyRequest().authenticated())
           .formLogin(form -> form.loginPage("/login").permitAll())
           .logout().logoutSuccessUrl("/home");
+          
       return http.build();
     }
 }
