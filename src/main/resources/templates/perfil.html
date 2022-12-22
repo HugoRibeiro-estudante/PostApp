@@ -18,14 +18,14 @@
           <span class="text-center userperfil" th:text="${userlog.nome}"></span>
         </div>
 
-        <form action="/gravauseralterado" method="post" th:object="${user}"
+        <form
           class="d-flex flex-column w-100 mb-5 form-perfil">
-          <input type="hidden" th:field="*{id}">
+          <input type="hidden">
           <label for="email" class="mb-2">E-mail:</label>
-          <input type="email" th:field="*{email}" name="email" id="txtEmail" class="w-100 mb-5"
+          <input type="email" name="email" id="txtEmail" class="w-100 mb-5"
             th:value="${userlog.email}">
           <label for="email" class="mb-2">Telefone:</label>
-          <input type="tel" th:field="*{telefone}" name="tel" id="txtTel" class="w-100  mb-5"
+          <input type="tel" name="tel" id="txtTel" class="w-100  mb-5"
             th:value="${userlog.telefone}">
           <button class="py-2 px-4 align-self-center border border-dark rounded-pill mb-2 btn-update">Atualizar</button>
         </form>
