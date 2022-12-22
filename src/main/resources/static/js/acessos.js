@@ -31,7 +31,7 @@ async function validateForm() {
     contError += 1;
   } else {
     error_user.style.display = "none";
-    url = `http://${host}/usuario/find/${user.value}`;
+    url = `https://${host}/usuario/find/${user.value}`;
     
     const response = await fetch(url);
     if (response.ok) {
@@ -56,7 +56,7 @@ async function validateForm() {
     contError += 1;
   } else {
     error_email.style.display = "none";
-    url = `http://${host}/usuario/find/${email.value}`;
+    url = `https://${host}/usuario/find/${email.value}`;
     const response = await fetch(url);
    
     if (response.ok) {
