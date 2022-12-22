@@ -3,7 +3,7 @@ const host = window.location.host;
 async function find(){
     document.getElementById("result").innerHTML = ""
     textFind = document.getElementById("textFind");
-    url = `http://${host}/busca/${textFind.value}`;
+    url = `https://${host}/busca/${textFind.value}`;
     const response = await fetch(url)
         .then(data => data.json())
         .then(data => insert(data));
@@ -45,9 +45,9 @@ async function getParams(){
     const urlParams = new URLSearchParams(queryString);
     const busca = urlParams.get('find')
     if(busca === null){
-        url = `http://${host}/busca/desenvolvimento`;
+        url = `https://${host}/busca/desenvolvimento`;
     }else{
-        url = `http://${host}/busca/${busca}`;
+        url = `https://${host}/busca/${busca}`;
     }
 
     const response = await fetch(url)
