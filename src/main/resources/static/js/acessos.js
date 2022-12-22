@@ -97,3 +97,27 @@ async function validateForm() {
     form.submit();
   }
 }
+
+async function validateLogin(){
+
+  user = document.getElementById("user");
+  pwd = document.getElementById("pwd");
+
+  if(!pwd.value && !user.value){
+    document.getElementById("user-erro").innerHTML = "Usuário em branco, favor informa-lo";
+    document.getElementById("pwd-erro").innerHTML = "Senha em branco, favor informa-la";
+
+  }
+  else if(!user.value){
+    document.getElementById("user-erro").innerHTML = "Usuário em branco, favor informa-lo";
+  }
+  else if(!pwd.value){
+    document.getElementById("pwd-erro").innerHTML = "Senha em branco, favor informa-la";
+
+  }
+  else {
+    formLogin.submit();
+  }
+
+}
+
