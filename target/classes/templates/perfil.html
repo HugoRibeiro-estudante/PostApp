@@ -3,12 +3,13 @@
 
 <body>
   <div th:fragment="conteudo">
+    
     <div class="container d-flex flex-column align-items-center mt-5 mb-5">
       <div class="d-flex flex-column align-items-start box-content mt-3">
         <div class="d-flex flex-column align-items-center justify-content-center">
           <div class="box-user-info">
             <div class="box-user-pic">
-              <img th:src="@{/img/user-pic.png}" alt="Foto de perfil do usuário" class="user-pic">
+              <img th:src="@{/img/user-pic.png}" alt="Foto de perfil do usuário" class="user-picture">
               <button class="btn-edit-user-pic">
                 <img th:src="@{/img/pencil.png}" alt="Ícone de editar" class="icon-edit">
               </button>
@@ -26,6 +27,8 @@
         </form>
       </div>
     </div>
+
+    <link rel="stylesheet" href="/css/perfil.css">
   </div>
 </body>
 

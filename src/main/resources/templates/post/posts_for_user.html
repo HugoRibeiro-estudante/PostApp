@@ -50,6 +50,14 @@
             .autor{
                 text-align: center;
             }
+            .btn-delete{
+                background-color: rgb(233, 81, 81);
+                color:rgb(44, 44, 44);
+                width: 100%;
+            }
+            .btn-delete:hover{
+                background-color: rgb(245, 130, 130);
+            }
         </style>
         <div class="container">
             <div class="row m-4 justify-content-center">
@@ -68,6 +76,17 @@
                             <p class="card-text" th:text="${#temporals.format(postagems.create_data, 'dd/MM/yyyy')}"></p>
                             <a th:href="@{'/post/'+${postagems.id}}"
                                 class="btn btn-outline-light btn-register">Ler artigo</a>
+
+                            <form 
+                                action="../delete-post"
+                                sec:authorize="isAuthenticated()" 
+                                th:style="${userlog.username == usuario.username ? 'display:block' : 'display:none'}">
+
+                                <input type="text" name="id" th:value="${postagems.id}" style="display:none">
+
+                                <input type="submit" value="Deletar" class="btn btn-outline-light btn-delete">
+                            </form>
+                            
                         </div>
                     </div>
                 </div>

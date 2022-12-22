@@ -125,4 +125,41 @@ public class PostagemRepository {
                 "%"+busca+"%","%"+busca+"%");
         return list;
     }
+
+    public void save(Postagem postagem) {
+        //insert into postagem(id_usuario, titulo, subtitulo, corpo, create_data) values (2,'ARTIGO TESTE', 'TESTE','msg', '2022-11-19T13:00:00');
+
+        db.update(
+            "insert into postagem(id_usuario, titulo, subtitulo, corpo, create_data) values (?,?,?,?,?);",
+            postagem.getId_usuario().getId(),
+            postagem.getTitulo(),
+            postagem.getSubtitulo(),
+            postagem.getCorpo(),
+            postagem.getCreate_data()
+        );
+
+        int idPost = db.queryForObject(
+                "select id from postagem where id_usuario = ? order by create_data desc limit 1",
+                (rs, rowNum) -> {
+                    return rs.getInt("id");
+                },
+                postagem.getId_usuario().getId());
+        
+        String[] categorias = postagem.getId_usuario().getNome().split(",");
+
+        for(int i = 0; i < categorias.length; i ++){
+            db.update(
+                "insert into postagem_categorias(id_postagem,id_categoria) values (?,?);",
+                idPost,
+                categorias[i]
+            );
+        }
+    }
+
+    public void delete(Postagem postagem) {
+        db.update("DELETE FROM postagem_categorias WHERE id_postagem = ?;", postagem.getId());
+        db.update("DELETE from comentario WHERE id_postagem = ?;", postagem.getId());
+        db.update("DELETE from postagem where id = ?;", postagem.getId());
+       
+    }
 }

@@ -52,7 +52,15 @@ public class HomeController {
   }
 
   @GetMapping("/perfil")
-  public String Perfil() {
+  public String Perfil(Model model, HttpServletRequest request) {
+
+    try {
+      Principal principal = request.getUserPrincipal();
+      Usuario usr = usuarioRepository.findByUsername(principal.getName()).get();
+      model.addAttribute("userlog", usr);
+    } catch (Exception e) {
+        System.out.println(e);
+    }
     return "perfil";
   }
   

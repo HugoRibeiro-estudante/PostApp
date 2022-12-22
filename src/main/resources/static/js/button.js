@@ -50,3 +50,17 @@ var send = () => {
   console.log(categoryList)
   console.log(tiny);
 }
+
+var cat = []
+var selectCategory = (elem) => {
+  listCategory = document.getElementById("id_usuario.nome")
+  
+  if(elem.checked){
+    cat.push(elem.value)
+  }
+  else{
+    cat.splice(cat.indexOf(elem.value), 1);
+  }
+
+  listCategory.value = cat
+}
