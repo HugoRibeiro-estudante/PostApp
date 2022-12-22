@@ -15,14 +15,10 @@ body {
     overflow: hidden;
 }
 
-
-
 main {
     height: 80%;
     gap: 12px;
 }
-
-
 
 .box-login {
     display: flex;
@@ -62,7 +58,7 @@ input {
     outline: none;
 }
 
-input[type="button"] {
+input[type="submit"], input[type="button"] {
     background-color: #443091;
     padding: 10px;
     margin: 0 auto;

@@ -102,31 +102,29 @@ p {
     font-size: 18px;
 }
 
+.msgError{
+    font-size: 18px;
+    margin: 20px;
+    color: red;
+}
 
 @media only screen and (max-width: 600px) {
-
     .results {
         width: 300px;
         margin-top: 10px;
     }
 
     .share {
-
         background-position: center right 40px;
-
     }
 
     .search {
-
         background-position: center right 40px;
-
     }
 
     img{
       width: 80%;
     }
-
-
 
 }
 
@@ -138,15 +136,11 @@ p {
     }
 
     .share {
-
         background-position: center right 20px;
-
     }
 
     .search {
-
         background-position: center right 20px;
-
     }
 
 

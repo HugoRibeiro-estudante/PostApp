@@ -37,7 +37,7 @@ public class PostAppSecurity {
     @Bean
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
       http.authorizeHttpRequests(authorize -> authorize
-          .antMatchers("/","/home","/post", "/post/*","/css","/css/*","/js","/js/*","/img","/img/*","/comentario/get","/comentario/get/*","/cadastro","/cadastro/*","/usuario","/usuario/*", "/usuario/find/*","/busca","/busca/*").permitAll()
+          .antMatchers("/","/home","/post", "/post/*","/css","/css/*","/js","/js/*","/img","/img/*","/comentario/get","/get","/get/*","/comentario/get/*","/cadastro","/cadastro/*","/usuario","/usuario/*", "/usuario/find/*","/busca","/busca/*").permitAll()
           .anyRequest().authenticated())
           .formLogin(form -> form.loginPage("/login").permitAll())
           .logout().logoutSuccessUrl("/home");

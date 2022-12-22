@@ -80,7 +80,9 @@
                         <a th:href="@{'/usuario/'+${usuario.username}}" th:text="${usuario.username}"></a>
                     </div>
 
-                    <button type="button" class="btn btn-outline-light btn-register">seguir</button>
+                    <a th:href="@{'/usuario/'+${usuario.username}}" >
+                        <button type="button" class="btn btn-outline-light btn-register" >Visitar Perfil</button>
+                    </a>
 
                     <div th:each="postagems : ${postagems}" class="card card-left m-2">
                         <div class="card-body d-flex flex-column gap-2 justify-content-between">

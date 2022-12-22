@@ -53,12 +53,12 @@
         </style>
         <div class="container">
             <div class="row m-4 justify-content-center">
-                <div class="col-md-4 autor">
+                <div class="col-md-4 autor ">
                     <img class="userPhoto" th:src="${usuario.foto}">
-                    <p class="name" th:text="${usuario.nome}"></p>
-                    <p>Telefone: <lable th:text="${usuario.telefone}"></lable></p>
-                    <p>E-mail: <label th:text="${usuario.email}"></label></p>
-                    <p>Usuario: <label th:text="${usuario.username}"></label></p>
+                    <p class="name mb-2" th:text="${usuario.nome}"></p>
+                    <p class="mb-2">Telefone: <lable th:text="${usuario.telefone}"></lable></p>
+                    <p class="mb-2">E-mail: <label th:text="${usuario.email}"></label></p>
+                    <p class="mb-2">Usuario: <label th:text="${usuario.username}"></label></p>
                 </div>
                 <div class="col-md-8 row posts">
                     <div th:each="postagems : ${postagems}" class="card m-1">

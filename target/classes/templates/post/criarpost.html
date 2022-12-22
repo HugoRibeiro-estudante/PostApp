@@ -12,7 +12,7 @@
   <main th:fragment="conteudo">
     <link rel="stylesheet" href="/css/post.css">
 
-    <div class="container row ">
+    <form th:action="@{/criarpost}" class="container row ">
       <div class="col-1">
         <div th:replace="barra :: barra"></div>
       </div>
@@ -47,12 +47,10 @@
             <textarea id="tiny"></textarea>
           </div>
           <!--botão postar-->
-          <input type="button" onclick="send()" value="Postar" class="botão">
+          <input type="submit" onclick="send()" value="Postar" class="botão">
         </div>
       </div>
-
-      
-    </div>
+    </from>
 
     <script src="https://cdn.tiny.cloud/1/xrmkjerjj1h26t825dg9qbb2rck22d53v1t472r77qda59w4/tinymce/6/tinymce.min.js" referrerpolicy="origin"></script>
     </script>

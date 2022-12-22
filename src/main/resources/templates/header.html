@@ -17,8 +17,6 @@
         <form th:action="@{/logout}" method="post" sec:authorize="isAuthenticated()">
             <input class="btn btn-secondary btn-sm p-1 small" type="submit" value="Sair" />
         </form>
-
-        <a href="/login" sec:authorize="!isAuthenticated()" class="btn btn-secondary btn-sm p-1 small">Entrar</a>
     </div>
 
     

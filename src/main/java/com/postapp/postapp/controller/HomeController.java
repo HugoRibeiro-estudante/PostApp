@@ -50,4 +50,10 @@ public class HomeController {
   public String LogOff() {
     return "home/home-logoff";
   }
+
+  @GetMapping("/perfil")
+  public String Perfil() {
+    return "perfil";
+  }
+  
 }

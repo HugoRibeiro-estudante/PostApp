@@ -81,3 +81,18 @@ header {
   gap: 10px;
   margin-right: 50px;
 }
+
+.btn-register {
+  font-family: 'Inder', sans-serif;
+  background-color: #6A51C5;
+  border: none;
+}
+
+.btn-register:hover {
+  background-color: #443091;
+  color: white !important;
+}
+
+.btn-register:disabled {
+  background-color: #BAAFE4;
+}
