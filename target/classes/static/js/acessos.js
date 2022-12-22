@@ -71,6 +71,7 @@ async function validateForm() {
       }
     }
   }
+  
 
   /* Valida campo senha*/
   let error_senha = document.querySelector(".msg-senha");
