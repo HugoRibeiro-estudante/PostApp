@@ -71,8 +71,7 @@ public class CriarPost {
           System.out.println(e);
       }
 
-
-      return "post/criarpost";
+      return "home/home";
     }
 
     @GetMapping("/delete-post")
