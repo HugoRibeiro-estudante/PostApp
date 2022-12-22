@@ -8,11 +8,14 @@
             <form th:action="@{/login}" method="post" class="login-form">
                 <fieldset>
                     <input type="text" id="user" name="username" class="w-100" placeholder="Usuário">
+                    <span id="user-erro" class="text-danger"></span>
                 </fieldset>
                 <fieldset>
                     <input type="password" id="pwd" name="password" class="w-100" placeholder="Senha">
+                    <span id="pwd-erro" class="text-danger"></span>
                 </fieldset>
-                <input type="submit" value="Entrar" class="w-50">
+                <input type="button" value="Entrar" class="w-50" onclick="validateLogin()">
+
             </form>
         </div>
         <p class="register-message">Ainda não possui cadastro? <a href="cadastro" class="link">Clique aqui para fazer
