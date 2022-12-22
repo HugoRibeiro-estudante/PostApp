@@ -3,26 +3,30 @@
 
 <body>
   <div th:fragment="conteudo">
-    
+
     <div class="container d-flex flex-column align-items-center mt-5 mb-5">
-      <div class="d-flex flex-column align-items-start box-content mt-3">
+      <div class="d-flex flex-column align-items-center box-content mt-3">
         <div class="d-flex flex-column align-items-center justify-content-center">
           <div class="box-user-info">
             <div class="box-user-pic">
-              <img th:src="@{/img/user-pic.png}" alt="Foto de perfil do usuário" class="user-picture">
+              <img th:src="${userlog.foto}" alt="Foto de perfil do usuário" class="user-picture">
               <button class="btn-edit-user-pic">
                 <img th:src="@{/img/pencil.png}" alt="Ícone de editar" class="icon-edit">
               </button>
             </div>
           </div>
-          <span class="text-center userperfil">Hugo Ribeiro Alves</span>
+          <span class="text-center userperfil" th:text="${userlog.nome}"></span>
         </div>
 
-        <form class="d-flex flex-column w-100 mb-5 form-perfil">
+        <form action="/gravauseralterado" method="post" th:object="${user}"
+          class="d-flex flex-column w-100 mb-5 form-perfil">
+          <input type="hidden" th:field="*{id}">
           <label for="email" class="mb-2">E-mail:</label>
-          <input type="email" name="email" id="txtEmail" class="w-100 mb-5">
+          <input type="email" th:field="*{email}" name="email" id="txtEmail" class="w-100 mb-5"
+            th:value="${userlog.email}">
           <label for="email" class="mb-2">Telefone:</label>
-          <input type="tel" name="tel" id="txtTel" class="w-100  mb-5">
+          <input type="tel" th:field="*{telefone}" name="tel" id="txtTel" class="w-100  mb-5"
+            th:value="${userlog.telefone}">
           <button class="py-2 px-4 align-self-center border border-dark rounded-pill mb-2 btn-update">Atualizar</button>
         </form>
       </div>
