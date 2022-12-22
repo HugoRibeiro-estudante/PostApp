@@ -59,43 +59,20 @@ public class HomeController {
     return "home/home-logoff";
   }
 
-  // @GetMapping("/perfil")
-  // public String Perfil(Model model, HttpServletRequest request) {
-
-  //   try {
-  //     Principal principal = request.getUserPrincipal();
-  //     Usuario usr = usuarioRepository.findByUsername(principal.getName()).get();
-  //     model.addAttribute("userlog", usr);
-  //   } catch (Exception e) {
-  //       System.out.println(e);
-  //   }
-  //   return "perfil";
-  // }
 
   @GetMapping("/perfil")
-  public String Perfil(@RequestParam(value = "id", required = true) Integer cod, Model model) {
-      Usuario usuario = db.queryForObject(
-              "select * from usuario where id = ?",
-              (rs, rowNum) -> {
-                  Usuario usr = new Usuario();
-                  usr.setId(rs.getInt("id"));
-                  usr.setEmail(rs.getString("email"));
-                  usr.setTelefone(rs.getString("telefone"));
-                  return usr;
-              },
-              cod);
-      model.addAttribute("user", usuario);
-      return "perfil";
+  public String Perfil(Model model, HttpServletRequest request) {
+
+    try {
+      Principal principal = request.getUserPrincipal();
+      Usuario usr = usuarioRepository.findByUsername(principal.getName()).get();
+      model.addAttribute("userlog", usr);
+    } catch (Exception e) {
+        System.out.println(e);
+    }
+    return "perfil";
   }
 
-  // @PostMapping("/gravauseralterado")
-  // public String gravaUserAlterado(Usuario usuario) {
-    
-  //     db.update("update usuario set telefone=?, email=? where id = ?", 
-  //                 usuario.getId(), 
-  //                 usuario.getEmail(), 
-  //                 usuario.getTelefone());
-  //     return "redirect:/perfil";
-  // }   
+
   
 }
