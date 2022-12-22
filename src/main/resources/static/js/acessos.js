@@ -1,5 +1,6 @@
 const host = window.location.host;
 const form = document.querySelector(".register-form");
+const formLogin = document.querySelector(".login-form");
 
 function removeMsg(campo) {
   document.querySelector(`.${campo}`).style.display = "none";
